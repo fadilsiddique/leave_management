@@ -1,0 +1,179 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "LEAVE-REQ-.#####",
+ "creation": "2023-09-21 15:28:47.109231",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "employee",
+  "name1",
+  "department",
+  "branch",
+  "type",
+  "leave_type",
+  "excuse_type",
+  "section_break_kviq5",
+  "from_date",
+  "column_break_atgtw",
+  "to_date",
+  "column_break_oimet",
+  "section_break_t5onw",
+  "time",
+  "reason",
+  "leave_status",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "employee",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Employee",
+   "options": "Employee",
+   "reqd": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Leave Request",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fetch_from": "employee.branch",
+   "fieldname": "branch",
+   "fieldtype": "Link",
+   "label": "Branch",
+   "options": "Branch"
+  },
+  {
+   "depends_on": "eval: doc.leave_type=='Full Day' || doc.leave_type == 'Half Day'",
+   "fieldname": "from_date",
+   "fieldtype": "Date",
+   "label": "From Date",
+   "reqd": 1
+  },
+  {
+   "depends_on": "eval: doc.type == 'Full Day'",
+   "description": "Ignore if leave is just 1 day.",
+   "fieldname": "to_date",
+   "fieldtype": "Date",
+   "label": "To Date"
+  },
+  {
+   "depends_on": "eval: doc.leave_type == 'Morning Excuse'|| doc.leave_type == 'Evening Excuse'",
+   "fieldname": "time",
+   "fieldtype": "Date",
+   "label": "Date"
+  },
+  {
+   "fieldname": "column_break_atgtw",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_oimet",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_kviq5",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "section_break_t5onw",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Request Type",
+   "options": "\nLeave\nExcuse",
+   "reqd": 1
+  },
+  {
+   "depends_on": "eval: doc.type =='Leave'",
+   "fieldname": "leave_type",
+   "fieldtype": "Select",
+   "label": "Leave Type",
+   "options": "Full Day\nHalf Day"
+  },
+  {
+   "depends_on": "eval: doc.type=='Excuse'",
+   "fieldname": "excuse_type",
+   "fieldtype": "Select",
+   "label": "Excuse Type",
+   "options": "Morning\nEvening"
+  },
+  {
+   "fieldname": "reason",
+   "fieldtype": "Small Text",
+   "label": "Reason"
+  },
+  {
+   "fieldname": "leave_status",
+   "fieldtype": "Select",
+   "label": "Leave Status",
+   "options": "Pending\nApproved\nRejected",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "employee.full_name",
+   "fieldname": "name1",
+   "fieldtype": "Data",
+   "label": "Name",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "employee.department",
+   "fieldname": "department",
+   "fieldtype": "Link",
+   "label": "Department",
+   "options": "Department",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2023-09-23 18:52:12.518660",
+ "modified_by": "Administrator",
+ "module": "Leave Management",
+ "name": "Leave Request",
+ "naming_rule": "Expression (old style)",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [
+  {
+   "color": "Orange",
+   "title": "Pending"
+  },
+  {
+   "color": "Green",
+   "title": "Approved"
+  },
+  {
+   "color": "Red",
+   "title": "Rejected"
+  }
+ ]
+}
