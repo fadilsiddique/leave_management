@@ -1,13 +1,14 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "HR-EMP-.####",
  "creation": "2023-09-19 17:31:27.074050",
  "default_view": "List",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "fisrt_name",
+  "first_name",
   "middle_name",
   "last_name",
   "full_name",
@@ -16,23 +17,24 @@
   "date_of_birth",
   "column_break_7kbxv",
   "date_of_joining",
+  "designation",
   "status",
   "column_break_dfq7o",
   "section_break_qiu0p",
   "user_details",
+  "phone_no",
+  "email",
   "company_details_section",
   "company",
   "column_break_fhkeu",
   "branch",
   "column_break_bpf37",
-  "department"
+  "department",
+  "column_break_6nolf",
+  "leave_details_section",
+  "current_month_leave_balance"
  ],
  "fields": [
-  {
-   "fieldname": "fisrt_name",
-   "fieldtype": "Data",
-   "label": "Fisrt Name"
-  },
   {
    "fieldname": "middle_name",
    "fieldtype": "Data",
@@ -125,14 +127,52 @@
    "fieldtype": "Link",
    "label": "Department",
    "options": "Department"
+  },
+  {
+   "fieldname": "designation",
+   "fieldtype": "Link",
+   "label": "Designation",
+   "options": "Designation"
+  },
+  {
+   "fieldname": "first_name",
+   "fieldtype": "Data",
+   "label": "First Name"
+  },
+  {
+   "fieldname": "column_break_6nolf",
+   "fieldtype": "Column Break"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "leave_details_section",
+   "fieldtype": "Section Break",
+   "label": "Leave Details"
+  },
+  {
+   "fieldname": "current_month_leave_balance",
+   "fieldtype": "Float",
+   "label": "Current Month Leave Balance",
+   "precision": "1"
+  },
+  {
+   "fieldname": "phone_no",
+   "fieldtype": "Data",
+   "label": "Phone No."
+  },
+  {
+   "fieldname": "email",
+   "fieldtype": "Data",
+   "label": "Email"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-09-19 17:37:12.773772",
+ "modified": "2023-09-23 18:54:46.890815",
  "modified_by": "Administrator",
  "module": "Leave Management",
  "name": "Employee",
+ "naming_rule": "Expression (old style)",
  "owner": "Administrator",
  "permissions": [
   {
@@ -148,7 +188,17 @@
    "write": 1
   }
  ],
+ "search_fields": "full_name",
  "sort_field": "modified",
  "sort_order": "DESC",
- "states": []
+ "states": [
+  {
+   "color": "Green",
+   "title": "Active"
+  },
+  {
+   "color": "Red",
+   "title": "Inactive"
+  }
+ ]
 }
