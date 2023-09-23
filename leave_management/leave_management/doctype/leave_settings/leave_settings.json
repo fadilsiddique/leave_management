@@ -1,0 +1,48 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2023-09-21 15:47:18.679670",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "maximum_leaves_per_month",
+  "maximum_excuses_per_month"
+ ],
+ "fields": [
+  {
+   "fieldname": "maximum_leaves_per_month",
+   "fieldtype": "Float",
+   "label": "Maximum Leaves Per Month"
+  },
+  {
+   "fieldname": "maximum_excuses_per_month",
+   "fieldtype": "Float",
+   "label": "Maximum Excuses Per Month"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "issingle": 1,
+ "links": [],
+ "modified": "2023-09-21 15:47:18.679670",
+ "modified_by": "Administrator",
+ "module": "Leave Management",
+ "name": "Leave Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
