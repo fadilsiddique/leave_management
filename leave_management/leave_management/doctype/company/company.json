@@ -10,6 +10,12 @@
  "field_order": [
   "company_name",
   "company_address",
+  "address_1",
+  "address_2",
+  "streetlocality",
+  "city",
+  "country",
+  "pin",
   "logo"
  ],
  "fields": [
@@ -21,18 +27,49 @@
   },
   {
    "fieldname": "company_address",
-   "fieldtype": "Small Text",
+   "fieldtype": "Section Break",
    "label": "Company Address"
   },
   {
    "fieldname": "logo",
    "fieldtype": "Image",
    "label": "Logo"
+  },
+  {
+   "fieldname": "address_1",
+   "fieldtype": "Data",
+   "label": "Address 1"
+  },
+  {
+   "fieldname": "address_2",
+   "fieldtype": "Data",
+   "label": "Address 2"
+  },
+  {
+   "fieldname": "streetlocality",
+   "fieldtype": "Data",
+   "label": "Street/Locality"
+  },
+  {
+   "fieldname": "city",
+   "fieldtype": "Data",
+   "label": "City"
+  },
+  {
+   "fieldname": "country",
+   "fieldtype": "Select",
+   "label": "Country",
+   "options": "India"
+  },
+  {
+   "fieldname": "pin",
+   "fieldtype": "Data",
+   "label": "PIN"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-09-21 15:55:33.849257",
+ "modified": "2023-09-25 14:47:54.393767",
  "modified_by": "Administrator",
  "module": "Leave Management",
  "name": "Company",
