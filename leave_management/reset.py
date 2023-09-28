@@ -14,6 +14,7 @@ def reset_days():
     for employee in employee_list:
         emp_doc = frappe.get_doc('Employee', employee.name)
         emp_doc.current_month_leave_balance = current_month_sunday_count
+        emp_doc.current_month_excuse_balance = current_month_sunday_count
         emp_doc.save(ignore_permissions=True)
 
     leave_settings.save(ignore_permissions=True)

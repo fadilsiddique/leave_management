@@ -12,7 +12,7 @@
   "name1",
   "department",
   "branch",
-  "type",
+  "request_type",
   "leave_type",
   "excuse_type",
   "section_break_kviq5",
@@ -22,6 +22,7 @@
   "column_break_oimet",
   "section_break_t5onw",
   "time",
+  "total_no_leave",
   "reason",
   "leave_status",
   "amended_from"
@@ -88,14 +89,6 @@
    "fieldtype": "Section Break"
   },
   {
-   "fieldname": "type",
-   "fieldtype": "Select",
-   "in_list_view": 1,
-   "label": "Request Type",
-   "options": "\nLeave\nExcuse",
-   "reqd": 1
-  },
-  {
    "depends_on": "eval: doc.type =='Leave'",
    "fieldname": "leave_type",
    "fieldtype": "Select",
@@ -135,12 +128,24 @@
    "label": "Department",
    "options": "Department",
    "read_only": 1
+  },
+  {
+   "fieldname": "total_no_leave",
+   "fieldtype": "Float",
+   "label": "Total No. Of Leave",
+   "read_only": 1
+  },
+  {
+   "fieldname": "request_type",
+   "fieldtype": "Select",
+   "label": "Request Type",
+   "options": "\nLeave\nExcuse"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2023-09-23 18:52:12.518660",
+ "modified": "2023-09-26 19:28:51.514525",
  "modified_by": "Administrator",
  "module": "Leave Management",
  "name": "Leave Request",

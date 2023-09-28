@@ -5,4 +5,8 @@ frappe.ui.form.on('Leave Request', {
 	// refresh: function(frm) {
 
 	// }
+
+	validate: function(frm){
+		
+	}
 });

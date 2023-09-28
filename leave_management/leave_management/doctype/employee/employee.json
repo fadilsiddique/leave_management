@@ -32,7 +32,8 @@
   "department",
   "column_break_6nolf",
   "leave_details_section",
-  "current_month_leave_balance"
+  "current_month_leave_balance",
+  "current_month_excuse_balance"
  ],
  "fields": [
   {
@@ -164,11 +165,17 @@
    "fieldname": "email",
    "fieldtype": "Data",
    "label": "Email"
+  },
+  {
+   "fieldname": "current_month_excuse_balance",
+   "fieldtype": "Float",
+   "label": "Current Month Excuse Balance",
+   "precision": "1"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-09-23 18:54:46.890815",
+ "modified": "2023-09-28 16:13:25.474971",
  "modified_by": "Administrator",
  "module": "Leave Management",
  "name": "Employee",
