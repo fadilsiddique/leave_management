@@ -1,0 +1,61 @@
+{
+ "charts": [],
+ "content": "[{\"id\":\"-Sg3EC6OqQ\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Employee Portal</span>\",\"col\":12}},{\"id\":\"CM9tGzFrEg\",\"type\":\"card\",\"data\":{\"card_name\":\"Doctypes\",\"col\":4}}]",
+ "creation": "2023-09-23 13:46:18.133694",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "icon": "solid-success",
+ "idx": 0,
+ "is_hidden": 0,
+ "label": "Employee Portal",
+ "links": [
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Doctypes",
+   "link_count": 2,
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Employee",
+   "link_count": 0,
+   "link_to": "Employee",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Leave Request",
+   "link_count": 0,
+   "link_to": "Leave Request",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  }
+ ],
+ "modified": "2023-09-29 20:46:17.564625",
+ "modified_by": "Administrator",
+ "module": "Leave Management",
+ "name": "Employee Portal",
+ "number_cards": [],
+ "owner": "Administrator",
+ "parent_page": "",
+ "public": 1,
+ "quick_lists": [],
+ "roles": [
+  {
+   "role": "Employee"
+  }
+ ],
+ "sequence_id": 2.0,
+ "shortcuts": [],
+ "title": "Employee Portal"
+}
