@@ -14,11 +14,22 @@ class LeaveRequest(Document):
 			employee_doc=frappe.get_doc('Employee',self.employee)
 			if self.request_type == 'Leave':
 
+				requests = frappe.db.count(self.doctype,{'from_date':self.date})
+
+				if requests >= 5:
+					frappe.throw("Maximum Leaves For Selected Date Is Taken")
+
 				if employee_doc.current_month_leave_balance == 0.0:
 					frappe.throw('Maximum leave for this month is taken. Please contact HR for new request')
 
 			elif self.request_type == 'Excuse':
-			
+
+				requests = frappe.db.count(self.doctype,{'time':self.date})
+
+				if requests >= 5:
+					frappe.throw ("Maximum Excuse For The Selected Date Is Taken")
+
+
 				if employee_doc.current_month_excuse_balance == 0.0:
 					frappe.throw('Maximum excuse for this month is taken. Please contact HR for new request')
 
