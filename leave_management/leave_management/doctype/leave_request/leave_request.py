@@ -3,6 +3,7 @@
 
 import frappe
 from frappe.model.document import Document
+import datetime
 
 class LeaveRequest(Document):
 
@@ -11,43 +12,54 @@ class LeaveRequest(Document):
 		roles = frappe.get_roles(frappe.session.user)
 
 		if 'Employee' in roles:
-			employee_doc=frappe.get_doc('Employee',self.employee)
+			leave_settings = frappe.get_doc('Leave Settings')
+			current_month_leave_balance, current_month_excuse_balance = frappe.db.get_value('Employee',self.employee,['current_month_leave_balance','current_month_excuse_balance'])
+
 			if self.request_type == 'Leave':
 
 				requests = frappe.db.count(self.doctype,{'from_date':self.from_date})
 
-				if requests >= 5:
-					frappe.throw("Maximum Leaves For Selected Date Is Taken")
+				if requests == leave_settings.maximum_leaves_per_day:
+					frappe.throw("Maximum Leaves For Selected Date Is Taken, Please Contact HR")
 
-				if employee_doc.current_month_leave_balance == 0.0:
+				if current_month_leave_balance == 0.0:
 					frappe.throw('Maximum leave for this month is taken. Please contact HR for new request')
 
 			elif self.request_type == 'Excuse':
 
 				requests = frappe.db.count(self.doctype,{'time':self.time})
 
-				if requests >= 5:
-					frappe.throw ("Maximum Excuse For The Selected Date Is Taken")
+				if requests == leave_settings.maximum_excuse_per_day:
+					frappe.throw ("Maximum Excuse For The Selected Date Is Taken, Please Contact HR")
 
 
-				if employee_doc.current_month_excuse_balance == 0.0:
+				if current_month_excuse_balance == 0.0:
 					frappe.throw('Maximum excuse for this month is taken. Please contact HR for new request')
 
 
 	def on_submit(self):
+
+		now = datetime.now()
 
 		if self.leave_status=='Approved':
 
 			employee_doc=frappe.get_doc('Employee',self.employee)
 
 			if self.request_type == 'Leave':
-				if employee_doc.current_month_leave_balance >0.0:
+				if employee_doc.current_month_leave_balance >0.0 and self.from_date.month==now.month:
 					employee_doc.db_set('current_month_leave_balance',employee_doc.current_month_leave_balance - 1)
-					
+				
+				elif employee_doc.next_month_leave_balance >0.0 and self.from_date.month!=now.month:
+					employee_doc.db_set('next_month_leave_balance',employee_doc.next_month_leave_balance - 1)
 
 			elif self.request_type == 'Excuse':
-				if employee_doc.current_month_leave_balance >0.0:
+				if employee_doc.current_month_excuse_balance >0.0 and self.time.month==now.month:
 					employee_doc.db_set('current_month_excuse_balance',employee_doc.current_month_excuse_balance - 1)
+
+				elif employee_doc.next_month_excuse_balance >0.0 and self.time.month==now.month:
+					employee_doc.db_set('next_month_excuse_balance',employee_doc.next_month_excuse_balance - 1)
+
+
 
 
 

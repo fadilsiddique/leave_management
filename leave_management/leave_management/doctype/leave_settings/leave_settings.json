@@ -8,7 +8,10 @@
  "engine": "InnoDB",
  "field_order": [
   "maximum_leaves_per_month",
-  "maximum_excuses_per_month"
+  "maximum_excuses_per_month",
+  "column_break_kugdh",
+  "maximum_leaves_per_day",
+  "maximum_excuses_per_day"
  ],
  "fields": [
   {
@@ -20,12 +23,26 @@
    "fieldname": "maximum_excuses_per_month",
    "fieldtype": "Float",
    "label": "Maximum Excuses Per Month"
+  },
+  {
+   "fieldname": "column_break_kugdh",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "maximum_leaves_per_day",
+   "fieldtype": "Float",
+   "label": "Maximum Leaves Per Day"
+  },
+  {
+   "fieldname": "maximum_excuses_per_day",
+   "fieldtype": "Float",
+   "label": "Maximum Excuses Per Day"
   }
  ],
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2023-09-21 15:47:18.679670",
+ "modified": "2023-09-30 20:56:40.334563",
  "modified_by": "Administrator",
  "module": "Leave Management",
  "name": "Leave Settings",
