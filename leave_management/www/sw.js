@@ -7,7 +7,9 @@ self.addEventListener('install', event => {
         return cache.addAll([
           '/',
           '/index.html',
-          '/manifest.webmanifest'
+          '/manifest.webmanifest',
+          '/app',
+
     
         ]);
       })
@@ -15,6 +17,7 @@ self.addEventListener('install', event => {
   });
   
   self.addEventListener('fetch', event => {
+    console.log(event)
     event.respondWith(
       caches.match(event.request).then(response => {
         return response || fetch(event.request);
