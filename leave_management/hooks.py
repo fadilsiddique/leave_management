@@ -134,14 +134,14 @@ web_include_css = "/assets/leave_management/css/logo.css"
 # }
 
 scheduler_events = {
-    # "cron":{
-    #     "0/1 * * * *":[
-    #         "leave_management.reset.reset_days"
-    #     ]
-    # },
-    "monthly":[
-        "leave_management.reset.reset_days"
-    ]
+    "cron":{
+        "0/1 * * * *":[
+            "leave_management.reset.reset_days"
+        ]
+    },
+    # "monthly":[
+    #     "leave_management.reset.reset_days"
+    # ]
 }
 # Testing
 # -------
