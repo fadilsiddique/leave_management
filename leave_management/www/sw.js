@@ -25,8 +25,8 @@ self.addEventListener('install', event => {
     );
   });
 
-// Assuming you are using JavaScript to handle page loading
-document.addEventListener('DOMContentLoaded', (event) => {
+
+  self.addEventListener('DOMContentLoaded', (event) => {
     let deferredPrompt;
   
     window.addEventListener('beforeinstallprompt', (e) => {
@@ -36,21 +36,29 @@ document.addEventListener('DOMContentLoaded', (event) => {
       // Stash the event so it can be triggered later
       deferredPrompt = e;
   
-      // Update UI notify the user they can install the PWA
-      // You can use a button, link, or any UI element
-      // For example:
-      // showInstallButton();
+      // Show a button or UI element to indicate the user can install the PWA
+      showInstallButton();
     });
   
-    // Optionally, you can add an event listener to a button or element
-    // to trigger the install prompt
-    // document.getElementById('installButton').addEventListener('click', (e) => {
-    //   deferredPrompt.prompt();
-    //   deferredPrompt.userChoice.then((choiceResult) => {
-    //     if (choiceResult.outcome === 'accepted') {
-    //       console.log('User accepted the install prompt');
-    //     }
-    //     deferredPrompt = null;
-    //   });
-    // });
+    function showInstallButton() {
+      // Display an install button
+      let installButton = document.createElement('button');
+      installButton.textContent = 'Install App';
+      installButton.addEventListener('click', (e) => {
+        // Trigger the install prompt
+        deferredPrompt.prompt();
+  
+        // Wait for the user to respond to the prompt
+        deferredPrompt.userChoice.then((choiceResult) => {
+          if (choiceResult.outcome === 'accepted') {
+            console.log('User accepted the install prompt');
+          }
+          deferredPrompt = null;
+        });
+      });
+  
+      // Add the install button to your UI
+      self.body.appendChild(installButton);
+    }
   });
+  
