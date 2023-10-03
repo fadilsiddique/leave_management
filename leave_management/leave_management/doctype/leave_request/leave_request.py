@@ -3,10 +3,9 @@
 
 import frappe
 from frappe.model.document import Document
-import datetime
+from datetime import datetime
 
 class LeaveRequest(Document):
-
 	def validate(self):
 		
 		roles = frappe.get_roles(frappe.session.user)
@@ -58,13 +57,3 @@ class LeaveRequest(Document):
 
 				elif employee_doc.next_month_excuse_balance >0.0 and self.time.month==now.month:
 					employee_doc.db_set('next_month_excuse_balance',employee_doc.next_month_excuse_balance - 1)
-
-
-
-
-
-				
-			
-			
-
-

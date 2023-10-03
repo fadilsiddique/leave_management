@@ -1,5 +1,6 @@
 {
  "actions": [],
+ "allow_import": 1,
  "allow_rename": 1,
  "autoname": "field:department_name",
  "creation": "2023-09-15 20:54:30.072503",
@@ -20,7 +21,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-09-23 13:35:00.128099",
+ "modified": "2023-10-01 18:17:42.097349",
  "modified_by": "Administrator",
  "module": "Leave Management",
  "name": "Department",

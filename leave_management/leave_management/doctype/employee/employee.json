@@ -1,5 +1,6 @@
 {
  "actions": [],
+ "allow_import": 1,
  "allow_rename": 1,
  "autoname": "HR-EMP-.####",
  "creation": "2023-09-19 17:31:27.074050",
@@ -192,7 +193,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-09-30 22:30:12.594477",
+ "modified": "2023-10-01 18:17:04.174315",
  "modified_by": "Administrator",
  "module": "Leave Management",
  "name": "Employee",
