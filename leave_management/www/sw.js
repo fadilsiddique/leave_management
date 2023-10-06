@@ -11,9 +11,9 @@ self.addEventListener('install', event => {
           '/app',
           '/index',
           '/app/admin-portal',
-          '/manifest.json',
+          '/manifest.webmanifest',
           '/website_script.js',
-          'login'
+          '/login'
           
         ]);
       })
