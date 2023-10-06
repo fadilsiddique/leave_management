@@ -1,28 +1,21 @@
 <!DOCTYPE html>
 
 <html>
-    <head>
+<head>
 
-<link rel="manifest" href="/manifest.webmanifest"/>
-
-
-<script>
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('/sw.js')
-        .then(registration => {
-          console.log('Service Worker registered with scope:', registration.scope);
-        })
-        .catch(error => {
-          console.error('Service Worker registration failed:', error);
-        });
-    }
-  </script>
-  <meta name="theme-color" content="#000000" purpose="installable">
+  <link rel="manifest" href="/manifest.json">
+    <script>
+          if ('serviceWorker' in navigator) {
+            console.log("brosem")
+            navigator.serviceWorker.register('/sw.js')
+              .then(registration => {
+                console.log('Service Worker registered with scope:', registration.scope);
+              })
+              .catch(error => {
+                console.error('Service Worker registration failed:', error);
+              });
+          }
+    </script>
 </head>
-
-<p>
-    hello
-</p>
-
 </html>
 

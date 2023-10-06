@@ -39,21 +39,34 @@ class LeaveRequest(Document):
 	def on_submit(self):
 
 		now = datetime.now()
+		leave_settings = frappe.get_doc('Leave Settings')
+		employee_doc=frappe.get_doc('Employee',self.employee)
 
 		if self.leave_status=='Approved':
 
-			employee_doc=frappe.get_doc('Employee',self.employee)
-
 			if self.request_type == 'Leave':
+				# leave = frappe.db.count('Leave Request', {'request_type': 'Leave', 'from_date': ('timespan', 'this month')})
+
+				if employee_doc.current_month_leave_balance ==0.0:
+					employee_doc.db_set('current_month_excuse_balance',employee_doc.current_month_excuse_balance - 1)
+
 				if employee_doc.current_month_leave_balance >0.0 and self.from_date.month==now.month:
 					employee_doc.db_set('current_month_leave_balance',employee_doc.current_month_leave_balance - 1)
 				
 				elif employee_doc.next_month_leave_balance >0.0 and self.from_date.month!=now.month:
 					employee_doc.db_set('next_month_leave_balance',employee_doc.next_month_leave_balance - 1)
 
+
 			elif self.request_type == 'Excuse':
+				if employee_doc.current_month_excuse_balance ==0.0:
+					employee_doc.db_set('current_month_leave_balance',employee_doc.current_month_leave_balance - 1)
+		
 				if employee_doc.current_month_excuse_balance >0.0 and self.time.month==now.month:
 					employee_doc.db_set('current_month_excuse_balance',employee_doc.current_month_excuse_balance - 1)
 
 				elif employee_doc.next_month_excuse_balance >0.0 and self.time.month==now.month:
 					employee_doc.db_set('next_month_excuse_balance',employee_doc.next_month_excuse_balance - 1)
+
+
+
+
