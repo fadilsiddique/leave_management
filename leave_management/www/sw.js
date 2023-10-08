@@ -8,12 +8,11 @@ self.addEventListener('install', event => {
       caches.open(cacheName).then(cache => {
         return cache.addAll([
           '/',
-          '/app',
-          '/index',
-          '/app/admin-portal',
           '/manifest.webmanifest',
-          '/website_script.js',
-          '/login'
+          '/assets/frappe/css/bootstrap.css',
+          '/assets/frappe/js/bootstrap-4-web.bundle.js',
+          '/assets/frappe/js/jquery-bootstrap.js',
+          '/assets/frappe/js/frappe-web.bundle.js'
           
         ]);
       })
