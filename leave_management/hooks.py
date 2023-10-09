@@ -6,7 +6,7 @@ app_publisher = "Fadil Siddique"
 app_description = "To manage leave of employees"
 app_email = "fadilsiddique@gmail.com"
 app_license = "MIT"
-app_logo_url = "/files/English Letter Style 1.png"
+app_logo_url = "/files/MR.png"
 
 
 # Includes in <head>
@@ -135,7 +135,7 @@ web_include_css = "/assets/leave_management/css/logo.css"
 
 scheduler_events = {
     "cron":{
-        "0/1 * * * *":[
+        "0/5 * * * *":[
             "leave_management.reset.reset_days"
         ]
     },
