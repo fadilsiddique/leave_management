@@ -1,6 +1,6 @@
 {
  "charts": [],
- "content": "[{\"id\":\"r_ObaeOuH6\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Admin Portal</span>\",\"col\":12}},{\"id\":\"FzYd8ODPZk\",\"type\":\"card\",\"data\":{\"card_name\":\"Portal\",\"col\":4}}]",
+ "content": "[{\"id\":\"r_ObaeOuH6\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Admin Portal</span>\",\"col\":12}},{\"id\":\"2QmjVTQzUb\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Leave Requests\",\"col\":3}},{\"id\":\"MiwnqL1Ruz\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Employee\",\"col\":3}},{\"id\":\"5exBIuPTNE\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Department\",\"col\":3}},{\"id\":\"FzYd8ODPZk\",\"type\":\"card\",\"data\":{\"card_name\":\"Portal\",\"col\":4}}]",
  "creation": "2023-09-28 14:41:55.485252",
  "custom_blocks": [],
  "docstatus": 0,
@@ -31,7 +31,7 @@
    "type": "Link"
   }
  ],
- "modified": "2023-09-28 14:43:54.932535",
+ "modified": "2023-10-11 14:07:05.769016",
  "modified_by": "Administrator",
  "module": "Leave Management",
  "name": "Admin Portal",
@@ -49,6 +49,28 @@
   }
  ],
  "sequence_id": 1.0,
- "shortcuts": [],
+ "shortcuts": [
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Leave Requests",
+   "link_to": "Leave Request",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Employee",
+   "link_to": "Employee",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Department",
+   "link_to": "Department",
+   "type": "DocType"
+  }
+ ],
  "title": "Admin Portal"
 }

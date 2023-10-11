@@ -13,11 +13,11 @@ app_logo_url = "/files/MR.png"
 # ------------------
 
 # include js, css files in header of desk.html
-app_include_css = "/assets/leave_management/css/logo.css"
+# app_include_css = "/assets/leave_management/css/logo.css"
 # app_include_js = "/assets/leave_management/js/leave_management.js"
 
 # include js, css files in header of web template
-web_include_css = "/assets/leave_management/css/logo.css"
+# web_include_css = "/assets/leave_management/css/logo.css"
 # web_include_js = "/assets/leave_management/js/leave_management.js"
 
 # include custom scss in every website theme (without file extension ".scss")
@@ -133,15 +133,18 @@ web_include_css = "/assets/leave_management/css/logo.css"
 #	],
 # }
 
+# scheduler_events = {
+#     "hourly": [
+#         "leave_management.reset.reset_days"
+#     ]
+# }
+
 scheduler_events = {
     "cron":{
-        "0/5 * * * *":[
+        "0/1 * * * *":[
             "leave_management.reset.reset_days"
-        ]
-    },
-    # "monthly":[
-    #     "leave_management.reset.reset_days"
-    # ]
+        ] 
+    }
 }
 # Testing
 # -------
