@@ -50,17 +50,18 @@
    "options": "Branch"
   },
   {
-   "depends_on": "eval: doc.leave_type=='Full Day' || doc.leave_type == 'Half Day'",
+   "depends_on": "eval: doc.request_type=='Leave'",
    "fieldname": "from_date",
    "fieldtype": "Date",
    "label": "Leave Date",
-   "reqd": 1
+   "mandatory_depends_on": "eval: doc.request_type=='Leave'"
   },
   {
-   "depends_on": "eval: doc.leave_type == 'Morning Excuse'|| doc.leave_type == 'Evening Excuse'",
+   "depends_on": "eval: doc.request_type == 'Excuse'",
    "fieldname": "time",
    "fieldtype": "Date",
-   "label": "Excuse Date"
+   "label": "Excuse Date",
+   "mandatory_depends_on": "eval: doc.request_type == 'Excuse'"
   },
   {
    "fieldname": "column_break_atgtw",
@@ -126,7 +127,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2023-10-04 20:19:32.954795",
+ "modified": "2023-10-12 11:53:40.429837",
  "modified_by": "Administrator",
  "module": "Leave Management",
  "name": "Leave Request",

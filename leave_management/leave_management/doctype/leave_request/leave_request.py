@@ -28,7 +28,7 @@ class LeaveRequest(Document):
 
 				requests = frappe.db.count(self.doctype,{'time':self.time,'leave_status':'Approved'})
 
-				if requests == leave_settings.maximum_excuse_per_day:
+				if requests == leave_settings.maximum_excuses_per_day:
 					frappe.throw ("Maximum Excuse For The Selected Date Is Taken, Please Contact HR")
 
 
