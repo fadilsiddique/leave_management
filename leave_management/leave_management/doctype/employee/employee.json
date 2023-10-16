@@ -19,6 +19,7 @@
   "column_break_7kbxv",
   "date_of_joining",
   "designation",
+  "floor",
   "status",
   "column_break_dfq7o",
   "section_break_qiu0p",
@@ -189,11 +190,19 @@
    "fieldname": "next_month_excuse_balance",
    "fieldtype": "Float",
    "label": "Next Month Excuse Balance"
+  },
+  {
+   "fieldname": "floor",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Floor",
+   "options": "\nGround\n1st\n2nd\n3rd\n4th",
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-10-01 18:17:04.174315",
+ "modified": "2023-10-16 18:55:50.248283",
  "modified_by": "Administrator",
  "module": "Leave Management",
  "name": "Employee",

@@ -12,6 +12,7 @@
   "name1",
   "department",
   "branch",
+  "floor",
   "request_type",
   "leave_type",
   "excuse_type",
@@ -122,12 +123,18 @@
    "label": "Request Type",
    "options": "\nLeave\nExcuse",
    "reqd": 1
+  },
+  {
+   "fetch_from": "employee.floor",
+   "fieldname": "floor",
+   "fieldtype": "Read Only",
+   "label": "Floor"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2023-10-16 09:38:58.810719",
+ "modified": "2023-10-16 18:57:24.122642",
  "modified_by": "Administrator",
  "module": "Leave Management",
  "name": "Leave Request",

@@ -13,7 +13,6 @@ frappe.ui.form.on('Leave Request', {
 		console.log(frm.doc.request_type, frm.doc.excuse_type)
 
 			if (frm.doc.request_type == 'Leave'){
-				console.log("brororor")
 				let selected_date = new Date(frm.doc.from_date);
 				let day = selected_date.getDay();
 				if (day === 5 || day === 6){
