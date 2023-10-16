@@ -11,7 +11,10 @@
   "maximum_excuses_per_month",
   "column_break_kugdh",
   "maximum_leaves_per_day",
-  "maximum_excuses_per_day"
+  "maximum_excuses_per_day",
+  "section_break_rsasl",
+  "restrict_leave",
+  "floor_leave_allocation_section"
  ],
  "fields": [
   {
@@ -37,12 +40,26 @@
    "fieldname": "maximum_excuses_per_day",
    "fieldtype": "Float",
    "label": "Maximum Excuses Per Day"
+  },
+  {
+   "fieldname": "section_break_rsasl",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "restrict_leave",
+   "fieldtype": "Date",
+   "label": "Restrict Leave"
+  },
+  {
+   "fieldname": "floor_leave_allocation_section",
+   "fieldtype": "Section Break",
+   "label": "Floor Leave Allocation"
   }
  ],
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2023-09-30 20:56:40.334563",
+ "modified": "2023-10-16 19:02:10.961105",
  "modified_by": "Administrator",
  "module": "Leave Management",
  "name": "Leave Settings",

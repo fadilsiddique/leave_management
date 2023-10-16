@@ -14,6 +14,9 @@ class LeaveRequest(Document):
 			leave_settings = frappe.get_doc('Leave Settings')
 			current_month_leave_balance, current_month_excuse_balance = frappe.db.get_value('Employee',self.employee,['current_month_leave_balance','current_month_excuse_balance'])
 
+			if self.from_date or self.time == leave_settings.restrict_leave:
+				frappe.throw(title="Request Denied", msg="Taking Leave/Excuse On Selected Date Is Restricted By Management. Please Contact HR")
+
 			if self.request_type == 'Leave':
 
 				requests = frappe.db.count(self.doctype,{'from_date':self.from_date,'leave_status':'Approved'})
