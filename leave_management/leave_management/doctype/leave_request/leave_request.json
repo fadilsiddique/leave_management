@@ -83,7 +83,7 @@
    "options": "Full Day\nHalf Day"
   },
   {
-   "depends_on": "eval: doc.type=='Excuse'",
+   "depends_on": "eval: doc.request_type=='Excuse'",
    "fieldname": "excuse_type",
    "fieldtype": "Select",
    "label": "Excuse Type",
@@ -127,7 +127,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2023-10-12 11:53:40.429837",
+ "modified": "2023-10-16 09:38:58.810719",
  "modified_by": "Administrator",
  "module": "Leave Management",
  "name": "Leave Request",
