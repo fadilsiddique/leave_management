@@ -12,9 +12,14 @@ class LeaveRequest(Document):
 
 		if 'Employee' in roles:
 			leave_settings = frappe.get_doc('Leave Settings')
-			current_month_leave_balance, current_month_excuse_balance = frappe.db.get_value('Employee',self.employee,['current_month_leave_balance','current_month_excuse_balance'])
+			current_month_leave_balance, current_month_excuse_balance, department, floor= frappe.db.get_value('Employee',self.employee,['current_month_leave_balance','current_month_excuse_balance','department','floor'])
+			if floor:
+				floor_wise_leave(self,leave_settings)
+			if department:
+				department_wise_leave(self,leave_settings)
 
-			if self.from_date or self.time == leave_settings.restrict_leave:
+			if self.from_date == leave_settings.restrict_leave:
+				
 				frappe.throw(title="Request Denied", msg="Taking Leave/Excuse On Selected Date Is Restricted By Management. Please Contact HR")
 
 			if self.request_type == 'Leave':
@@ -34,7 +39,6 @@ class LeaveRequest(Document):
 				if requests == leave_settings.maximum_excuses_per_day:
 					frappe.throw ("Maximum Excuse For The Selected Date Is Taken, Please Contact HR")
 
-
 				if current_month_excuse_balance == 0.0:
 					frappe.throw('Maximum excuse for this month is taken. Please contact HR for new request')
 
@@ -48,7 +52,6 @@ class LeaveRequest(Document):
 		if self.leave_status=='Approved':
 
 			if self.request_type == 'Leave':
-				# leave = frappe.db.count('Leave Request', {'request_type': 'Leave', 'from_date': ('timespan', 'this month')})
 
 				if employee_doc.current_month_leave_balance ==0.0:
 					employee_doc.db_set('current_month_excuse_balance',employee_doc.current_month_excuse_balance - 1)
@@ -69,6 +72,33 @@ class LeaveRequest(Document):
 
 				elif employee_doc.next_month_excuse_balance >0.0 and self.time.month==now.month:
 					employee_doc.db_set('next_month_excuse_balance',employee_doc.next_month_excuse_balance - 1)
+
+def floor_wise_leave(self,leave_settings):
+		floor= frappe.db.get_value('Employee',self.employee,['floor'])
+		requests = frappe.db.count(self.doctype,{'from_date':self.from_date,'leave_status':'Approved','floor':floor})
+
+		if floor:
+			for i in leave_settings.floor_leave_allocation_table:
+				if i.floor == floor:
+
+					if requests > i.maximum_leaves :
+						frappe.throw(f"Maximum Leaves For {floor} Floor Has Been Taken")
+	
+def department_wise_leave(self,leave_settings):
+
+		department= frappe.db.get_value('Employee',self.employee,['department'])
+		requests = frappe.db.count(self.doctype,{'from_date':self.from_date,'leave_status':'Approved','department':department})
+
+		if department:
+			for i in leave_settings.department_leave_allocation_table:
+				if i.department == department:
+					if requests > i.maximum_leaves:
+						frappe.throw(f"Maximum Leaves For {department} Department Has Been Taken")
+
+			
+
+
+
 
 
 

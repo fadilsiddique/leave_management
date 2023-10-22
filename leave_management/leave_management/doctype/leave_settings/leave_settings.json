@@ -7,6 +7,7 @@
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
+  "general_settings_section",
   "maximum_leaves_per_month",
   "maximum_excuses_per_month",
   "column_break_kugdh",
@@ -14,7 +15,10 @@
   "maximum_excuses_per_day",
   "section_break_rsasl",
   "restrict_leave",
-  "floor_leave_allocation_section"
+  "floor_leave_allocation_section",
+  "floor_leave_allocation_table",
+  "department__leave_allocation_section",
+  "department_leave_allocation_table"
  ],
  "fields": [
   {
@@ -54,12 +58,34 @@
    "fieldname": "floor_leave_allocation_section",
    "fieldtype": "Section Break",
    "label": "Floor Leave Allocation"
+  },
+  {
+   "fieldname": "floor_leave_allocation_table",
+   "fieldtype": "Table",
+   "label": "Floor Leave Allocation Table",
+   "options": "Floor Leave Count"
+  },
+  {
+   "fieldname": "department__leave_allocation_section",
+   "fieldtype": "Section Break",
+   "label": "Department  Leave Allocation"
+  },
+  {
+   "fieldname": "department_leave_allocation_table",
+   "fieldtype": "Table",
+   "label": "Department Leave Allocation Table",
+   "options": "Department Leave Count"
+  },
+  {
+   "fieldname": "general_settings_section",
+   "fieldtype": "Section Break",
+   "label": "General Settings"
   }
  ],
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2023-10-16 19:02:10.961105",
+ "modified": "2023-10-17 00:58:15.494356",
  "modified_by": "Administrator",
  "module": "Leave Management",
  "name": "Leave Settings",
