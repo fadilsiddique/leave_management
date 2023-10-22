@@ -15,7 +15,7 @@ class Employee(Document):
 		self.next_month_leave_balance = get_next_month_sunday_count()
 		self.next_month_excuse_balance = get_next_month_sunday_count()
 
-		# self.save()
+		self.save()
 
 		if self.user_details:
 
