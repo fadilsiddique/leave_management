@@ -1,14 +1,14 @@
 {
  "actions": [],
  "allow_import": 1,
- "allow_rename": 1,
- "autoname": "HR-EMP-.####",
+ "autoname": "format:HR-EMP-{####}",
  "creation": "2023-09-19 17:31:27.074050",
  "default_view": "List",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
+  "employee_id",
   "first_name",
   "middle_name",
   "last_name",
@@ -193,16 +193,21 @@
   },
   {
    "fieldname": "floor",
-   "fieldtype": "Select",
+   "fieldtype": "Link",
    "in_list_view": 1,
    "label": "Floor",
-   "options": "\nGround\n1st\n2nd\n3rd\n4th",
-   "reqd": 1
+   "options": "Floor"
+  },
+  {
+   "fieldname": "employee_id",
+   "fieldtype": "Int",
+   "label": "Employee ID",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-10-16 18:55:50.248283",
+ "modified": "2023-10-22 16:57:02.110680",
  "modified_by": "Administrator",
  "module": "Leave Management",
  "name": "Employee",
@@ -222,7 +227,7 @@
    "write": 1
   }
  ],
- "search_fields": "full_name",
+ "search_fields": "full_name,employee_id",
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": [
@@ -234,5 +239,6 @@
    "color": "Red",
    "title": "Inactive"
   }
- ]
+ ],
+ "title_field": "full_name"
 }
