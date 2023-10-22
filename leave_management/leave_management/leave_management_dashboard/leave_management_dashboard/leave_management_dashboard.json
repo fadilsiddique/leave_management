@@ -1,0 +1,52 @@
+{
+ "cards": [
+  {
+   "card": "Active Employees"
+  },
+  {
+   "card": "Employees On Leave"
+  },
+  {
+   "card": "Pending Leave Approval"
+  },
+  {
+   "card": "Employees On Excuse (Morning)"
+  },
+  {
+   "card": "Employees On Excuse (Evening)"
+  },
+  {
+   "card": "Rejected Leave Requests"
+  }
+ ],
+ "charts": [
+  {
+   "chart": "Employee Leave Analytics",
+   "width": "Full"
+  },
+  {
+   "chart": "Employee Excuse Analytics (Morning)",
+   "width": "Half"
+  },
+  {
+   "chart": "Employee Excuse Analytics (Evening)",
+   "width": "Half"
+  },
+  {
+   "chart": "Rejection Insight",
+   "width": "Full"
+  }
+ ],
+ "creation": "2023-10-19 21:29:16.592099",
+ "dashboard_name": "Leave Management Dashboard",
+ "docstatus": 0,
+ "doctype": "Dashboard",
+ "idx": 0,
+ "is_default": 0,
+ "is_standard": 1,
+ "modified": "2023-10-19 21:29:16.592099",
+ "modified_by": "Administrator",
+ "module": "Leave Management",
+ "name": "Leave Management Dashboard",
+ "owner": "Administrator"
+}

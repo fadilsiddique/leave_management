@@ -1,0 +1,37 @@
+{
+ "based_on": "from_date",
+ "chart_name": "Employee Excuse Analytics (Morning)",
+ "chart_type": "Count",
+ "color": "#ECAD4B",
+ "creation": "2023-10-19 21:28:25.213170",
+ "docstatus": 0,
+ "doctype": "Dashboard Chart",
+ "document_type": "Leave Request",
+ "dynamic_filters_json": "[]",
+ "filters_json": "[[\"Leave Request\",\"leave_status\",\"=\",\"Approved\",false],[\"Leave Request\",\"request_type\",\"=\",\"Excuse\",false],[\"Leave Request\",\"excuse_type\",\"=\",\"Morning\",false]]",
+ "group_by_type": "Count",
+ "idx": 0,
+ "is_public": 1,
+ "is_standard": 1,
+ "last_synced_on": "2023-10-16 10:24:57.602503",
+ "modified": "2023-10-19 21:28:25.213170",
+ "modified_by": "Administrator",
+ "module": "Leave Management",
+ "name": "Employee Excuse Analytics (Morning)",
+ "number_of_groups": 0,
+ "owner": "Administrator",
+ "parent_document_type": "",
+ "roles": [
+  {
+   "role": "Accounts Manager"
+  }
+ ],
+ "source": "",
+ "time_interval": "Daily",
+ "timeseries": 1,
+ "timespan": "Last Month",
+ "type": "Line",
+ "use_report_chart": 0,
+ "value_based_on": "",
+ "y_axis": []
+}
