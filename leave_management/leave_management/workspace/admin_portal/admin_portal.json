@@ -1,7 +1,7 @@
 {
  "charts": [],
- "content": "[{\"id\":\"r_ObaeOuH6\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Admin Portal</span>\",\"col\":12}},{\"id\":\"2QmjVTQzUb\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Leave Requests\",\"col\":3}},{\"id\":\"MiwnqL1Ruz\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Employee\",\"col\":3}},{\"id\":\"5exBIuPTNE\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Department\",\"col\":3}},{\"id\":\"FzYd8ODPZk\",\"type\":\"card\",\"data\":{\"card_name\":\"Portal\",\"col\":4}}]",
- "creation": "2023-09-28 14:41:55.485252",
+ "content": "[{\"id\":\"r_ObaeOuH6\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Admin Portal</span>\",\"col\":12}},{\"id\":\"H9xMG1SMet\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Employees On Leave\",\"col\":3}},{\"id\":\"_1PRofgz6I\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Pending Leave Approval\",\"col\":3}},{\"id\":\"FChB-tpa4b\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Active Employees\",\"col\":3}},{\"id\":\"xPFlpxogmo\",\"type\":\"quick_list\",\"data\":{\"quick_list_name\":\"Leave Request\",\"col\":4}},{\"id\":\"c_D8m6wgO-\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Modules</b></span>\",\"col\":12}},{\"id\":\"-6Dbi5b-mO\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Leave Management Dashboard\",\"col\":5}},{\"id\":\"2QmjVTQzUb\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Leave Requests\",\"col\":4}},{\"id\":\"MiwnqL1Ruz\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Employee\",\"col\":3}},{\"id\":\"6o1qZJl3Il\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Leave Settings\",\"col\":5}},{\"id\":\"5d7BB_QPWf\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"User\",\"col\":4}},{\"id\":\"FzYd8ODPZk\",\"type\":\"card\",\"data\":{\"card_name\":\"Portal\",\"col\":4}},{\"id\":\"XyVTXA2koh\",\"type\":\"card\",\"data\":{\"card_name\":\"Reports\",\"col\":4}}]",
+ "creation": "2023-10-22 17:12:45.987940",
  "custom_blocks": [],
  "docstatus": 0,
  "doctype": "Workspace",
@@ -16,8 +16,10 @@
    "hidden": 0,
    "is_query_report": 0,
    "label": "Portal",
-   "link_count": 1,
+   "link_count": 4,
+   "link_type": "DocType",
    "onboard": 0,
+   "only_for": "India",
    "type": "Card Break"
   },
   {
@@ -28,18 +30,98 @@
    "link_to": "Company",
    "link_type": "DocType",
    "onboard": 0,
+   "only_for": "India",
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Branch",
+   "link_count": 0,
+   "link_to": "Branch",
+   "link_type": "DocType",
+   "onboard": 0,
+   "only_for": "India",
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Department ",
+   "link_count": 0,
+   "link_to": "Department",
+   "link_type": "DocType",
+   "onboard": 0,
+   "only_for": "India",
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Designation",
+   "link_count": 0,
+   "link_to": "Designation",
+   "link_type": "DocType",
+   "onboard": 0,
+   "only_for": "India",
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Reports",
+   "link_count": 2,
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Current Month Leave Reprot",
+   "link_count": 0,
+   "link_to": "Current Month Leave Reprot",
+   "link_type": "Report",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Current Month Excuse Report",
+   "link_count": 0,
+   "link_to": "Current Month Excuse Report",
+   "link_type": "Report",
+   "onboard": 0,
    "type": "Link"
   }
  ],
- "modified": "2023-10-11 14:07:05.769016",
+ "modified": "2023-10-22 17:16:34.591320",
  "modified_by": "Administrator",
  "module": "Leave Management",
  "name": "Admin Portal",
- "number_cards": [],
+ "number_cards": [
+  {
+   "label": "Employees On Leave",
+   "number_card_name": "Employees On Leave"
+  },
+  {
+   "label": "Active Employees",
+   "number_card_name": "Active Employees"
+  },
+  {
+   "label": "Pending Leave Approval",
+   "number_card_name": "Pending Leave Approval"
+  }
+ ],
  "owner": "Administrator",
  "parent_page": "",
  "public": 1,
- "quick_lists": [],
+ "quick_lists": [
+  {
+   "document_type": "Leave Request",
+   "label": "Leave Request"
+  }
+ ],
  "roles": [
   {
    "role": "Accounts Manager"
@@ -53,6 +135,27 @@
   {
    "color": "Grey",
    "doc_view": "List",
+   "label": "Leave Settings",
+   "link_to": "Leave Settings",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Leave Management Dashboard",
+   "link_to": "Leave Management Dashboard",
+   "type": "Dashboard"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "User",
+   "link_to": "User",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
    "label": "Leave Requests",
    "link_to": "Leave Request",
    "type": "DocType"
@@ -62,13 +165,6 @@
    "doc_view": "List",
    "label": "Employee",
    "link_to": "Employee",
-   "type": "DocType"
-  },
-  {
-   "color": "Grey",
-   "doc_view": "List",
-   "label": "Department",
-   "link_to": "Department",
    "type": "DocType"
   }
  ],
