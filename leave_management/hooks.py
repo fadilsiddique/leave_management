@@ -133,19 +133,12 @@ app_logo_url = "/files/MR.png"
 #	],
 # }
 
-# scheduler_events = {
-#     "hourly": [
-#         "leave_management.reset.reset_days"
-#     ]
-# }
-
 scheduler_events = {
-    "cron":{
-        "0/1 * * * *":[
-            "leave_management.reset.reset_days"
-        ] 
-    }
+    "monthly": [
+        "leave_management.reset.reset_days"
+    ]
 }
+
 # Testing
 # -------
 

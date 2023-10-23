@@ -1,7 +1,7 @@
 import frappe
 import calendar
 from datetime import datetime
-@frappe.whitelist()
+
 def reset_days():
     current_month_sunday_count =len([1 for i in calendar.monthcalendar(datetime.now().year,datetime.now().month) if i[6] != 0])
 

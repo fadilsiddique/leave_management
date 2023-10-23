@@ -10,6 +10,7 @@
  "field_order": [
   "employee",
   "name1",
+  "employee_id",
   "department",
   "branch",
   "floor",
@@ -129,12 +130,19 @@
    "fieldname": "floor",
    "fieldtype": "Read Only",
    "label": "Floor"
+  },
+  {
+   "fetch_from": "employee.employee_id",
+   "fieldname": "employee_id",
+   "fieldtype": "Int",
+   "label": "Employee ID",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2023-10-16 18:57:24.122642",
+ "modified": "2023-10-22 19:16:57.408000",
  "modified_by": "Administrator",
  "module": "Leave Management",
  "name": "Leave Request",
