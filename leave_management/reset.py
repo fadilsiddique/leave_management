@@ -17,8 +17,8 @@ def reset_days():
     for employee in employee_list:
 
         frappe.db.set_value('Employee',employee.name,{
-            'current_month_leave_balance':employee.next_month_leave_balance,
-            'current_month_excuse_balance':employee.next_month_excuse_balance,
+            'current_month_leave_balance':employee.next_month_leave_balance if employee.next_month_leave_balance else total_leave ,
+            'current_month_excuse_balance':employee.next_month_excuse_balance if employee.next_month_excuse_balance else total_leave ,
             'next_month_leave_balance':get_next_month_sunday_count(),
             'next_month_excuse_balance':get_next_month_sunday_count()
         })
