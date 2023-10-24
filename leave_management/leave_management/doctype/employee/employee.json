@@ -8,6 +8,9 @@
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
+  "section_break_qiu0p",
+  "user_details",
+  "section_break_3ukp0",
   "employee_id",
   "first_name",
   "middle_name",
@@ -22,8 +25,6 @@
   "floor",
   "status",
   "column_break_dfq7o",
-  "section_break_qiu0p",
-  "user_details",
   "phone_no",
   "email",
   "company_details_section",
@@ -89,10 +90,9 @@
   },
   {
    "fieldname": "column_break_dfq7o",
-   "fieldtype": "Column Break"
+   "fieldtype": "Section Break"
   },
   {
-   "collapsible": 1,
    "fieldname": "section_break_qiu0p",
    "fieldtype": "Section Break",
    "label": "User Details"
@@ -206,11 +206,15 @@
    "in_standard_filter": 1,
    "label": "Employee ID",
    "read_only": 1
+  },
+  {
+   "fieldname": "section_break_3ukp0",
+   "fieldtype": "Section Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-10-22 18:26:06.397166",
+ "modified": "2023-10-24 17:55:45.183208",
  "modified_by": "Administrator",
  "module": "Leave Management",
  "name": "Employee",
