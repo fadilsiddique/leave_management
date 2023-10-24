@@ -41,10 +41,25 @@ frappe.ui.form.on('Employee', {
 
 		}
 
-		console.log(full_name)
+		
 
 
+	},
+	user_details: function(frm){
 
+		frappe.db.get_doc('User',frm.doc.user_details).then( e=>{
+			
+			frm.set_value({
+				'first_name':e.first_name,
+				'middle_name':e.middle_name,
+				'last_name':e.last_name,
+				'gender':e.gender,
+				'phone_no':e.mobile_no,
 
+			})
+		}
+		)
+
+		
 	}
 });
