@@ -134,7 +134,7 @@ app_logo_url = "/files/MR.png"
 # }
 
 scheduler_events = {
-    "hourly": [
+    "monthly": [
         "leave_management.reset.reset_days"
     ]
 }
