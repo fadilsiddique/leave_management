@@ -23,6 +23,7 @@
   "section_break_t5onw",
   "time",
   "reason",
+  "notification_status",
   "leave_status",
   "amended_from"
  ],
@@ -137,12 +138,18 @@
    "fieldtype": "Int",
    "label": "Employee ID",
    "read_only": 1
+  },
+  {
+   "fieldname": "notification_status",
+   "fieldtype": "Select",
+   "label": "Notification Status",
+   "options": "Informed\nNot Informed"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2023-10-22 19:16:57.408000",
+ "modified": "2023-10-25 11:00:09.029438",
  "modified_by": "Administrator",
  "module": "Leave Management",
  "name": "Leave Request",
