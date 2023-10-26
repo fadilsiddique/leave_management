@@ -143,13 +143,14 @@
    "fieldname": "notification_status",
    "fieldtype": "Select",
    "label": "Notification Status",
-   "options": "Informed\nNot Informed"
+   "options": "Informed\nNot Informed",
+   "permlevel": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2023-10-25 11:00:09.029438",
+ "modified": "2023-10-26 10:30:19.714811",
  "modified_by": "Administrator",
  "module": "Leave Management",
  "name": "Leave Request",

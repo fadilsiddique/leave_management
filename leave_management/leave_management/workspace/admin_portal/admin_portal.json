@@ -95,7 +95,7 @@
    "type": "Link"
   }
  ],
- "modified": "2023-10-23 18:24:22.293453",
+ "modified": "2023-10-26 10:26:10.952641",
  "modified_by": "Administrator",
  "module": "Leave Management",
  "name": "Admin Portal",
@@ -132,6 +132,9 @@
   },
   {
    "role": "System Manager"
+  },
+  {
+   "role": "Asst. HR"
   }
  ],
  "sequence_id": 1.0,
