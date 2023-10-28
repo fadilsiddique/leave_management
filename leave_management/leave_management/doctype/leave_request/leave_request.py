@@ -18,13 +18,12 @@ class LeaveRequest(Document):
 			if department:
 				department_wise_leave(self,leave_settings)
 
-			if self.from_date == leave_settings.restrict_leave:
-				
-				frappe.throw(title="Request Denied", msg="Taking Leave/Excuse On Selected Date Is Restricted By Management. Please Contact HR")
-
 			if self.request_type == 'Leave':
 
 				requests = frappe.db.count(self.doctype,{'from_date':self.from_date,'leave_status':['in',['Approved','Pending']]})
+				if self.from_date==leave_settings.restrict_leave:
+					frappe.throw(title="Request Denied", msg="Taking Leave On Selected Date Is Restricted By Management. Please Contact HR")
+
 
 				if requests == leave_settings.maximum_leaves_per_day:
 					frappe.throw("Maximum Leaves For Selected Date Is Taken, Please Contact HR")
@@ -36,6 +35,8 @@ class LeaveRequest(Document):
 
 				requests = frappe.db.count(self.doctype,{'time':self.time,'leave_status':['in',['Approved','Pending']]})
 
+				if self.time==leave_settings.restrict_leave:
+					frappe.throw(title="Request Denied", msg="Taking Excuse On Selected Date Is Restricted By Management. Please Contact HR")
 				if requests == leave_settings.maximum_excuses_per_day:
 					frappe.throw ("Maximum Excuse For The Selected Date Is Taken, Please Contact HR")
 
