@@ -42,7 +42,7 @@ class LeaveRequest(Document):
 
 				if current_month_excuse_balance == 0.0:
 					frappe.throw('Maximum excuse for this month is taken. Please contact HR for new request')
-
+	
 
 	def on_submit(self):
 
@@ -74,6 +74,9 @@ class LeaveRequest(Document):
 				elif employee_doc.next_month_excuse_balance >0.0 and self.time.month==now.month:
 					employee_doc.db_set('next_month_excuse_balance',employee_doc.next_month_excuse_balance - 1)
 
+	def after_insert(self):
+		send_email_notification(self.name)
+
 def floor_wise_leave(self,leave_settings):
 
 		roles = frappe.get_roles(frappe.session.user)
@@ -104,6 +107,18 @@ def department_wise_leave(self,leave_settings):
 						if requests >= i.maximum_leaves:
 							frappe.throw(f"Maximum Leaves For {department} Department Has Been Taken")
 
+def send_email_notification(docname):
+
+	doc = frappe.get_doc('Leave Request', docname)
+	subject = f"New {doc.request_type} Request From {doc.name1}"
+	message = f"A new leave request has been submitted by {doc.name1}.\n"
+	message += f"Link to Leave Request: {frappe.utils.get_url_to_form('Leave Request', docname)}"
+
+	frappe.sendmail(
+		recipients=['teamhr.mjr@gmail.com'],
+		subject = subject,
+		message = message
+	)
 			
 
 

@@ -158,7 +158,7 @@
   {
    "fieldname": "current_month_leave_balance",
    "fieldtype": "Float",
-   "label": "Current Month Leave Balance",
+   "label": "Leave Balance",
    "precision": "1"
   },
   {
@@ -174,7 +174,7 @@
   {
    "fieldname": "current_month_excuse_balance",
    "fieldtype": "Float",
-   "label": "Current Month Excuse Balance",
+   "label": "Excuse Balance",
    "precision": "1"
   },
   {
@@ -214,7 +214,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-10-24 17:55:45.183208",
+ "modified": "2023-11-05 13:46:06.070493",
  "modified_by": "Administrator",
  "module": "Leave Management",
  "name": "Employee",
