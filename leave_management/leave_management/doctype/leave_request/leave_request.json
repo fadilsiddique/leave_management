@@ -16,6 +16,7 @@
   "floor",
   "request_type",
   "leave_type",
+  "leave_time",
   "excuse_type",
   "section_break_kviq5",
   "from_date",
@@ -79,7 +80,7 @@
    "fieldtype": "Section Break"
   },
   {
-   "depends_on": "eval: doc.type =='Leave'",
+   "depends_on": "eval: doc.request_type =='Leave'",
    "fieldname": "leave_type",
    "fieldtype": "Select",
    "label": "Leave Type",
@@ -145,12 +146,20 @@
    "label": "Notification Status",
    "options": "Informed\nNot Informed",
    "permlevel": 1
+  },
+  {
+   "depends_on": "eval: doc.leave_type =='Half Day'",
+   "fieldname": "leave_time",
+   "fieldtype": "Select",
+   "label": "Time",
+   "mandatory_depends_on": "eval: doc.leave_type =='Half Day'",
+   "options": "\nMorning\nEvening"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2023-10-26 10:30:19.714811",
+ "modified": "2023-11-06 17:26:24.678635",
  "modified_by": "Administrator",
  "module": "Leave Management",
  "name": "Leave Request",
