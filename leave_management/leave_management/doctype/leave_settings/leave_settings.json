@@ -51,8 +51,9 @@
   },
   {
    "fieldname": "restrict_leave",
-   "fieldtype": "Date",
-   "label": "Restrict Leave"
+   "fieldtype": "Table",
+   "label": "Restrict Leave",
+   "options": "Restrict Leave Table"
   },
   {
    "fieldname": "floor_leave_allocation_section",
@@ -85,7 +86,7 @@
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2023-10-17 00:58:15.494356",
+ "modified": "2023-11-11 17:22:31.028718",
  "modified_by": "Administrator",
  "module": "Leave Management",
  "name": "Leave Settings",
