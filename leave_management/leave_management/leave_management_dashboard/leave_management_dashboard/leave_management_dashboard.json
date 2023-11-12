@@ -13,7 +13,7 @@
    "card": "Employees On Excuse (Morning)"
   },
   {
-   "card": "Employees On Excuse (Evening)"
+   "card": "Employees On Excuse Evening"
   },
   {
    "card": "Rejected Leave Requests"
@@ -25,11 +25,11 @@
    "width": "Full"
   },
   {
-   "chart": "Employee Excuse Analytics (Morning)",
+   "chart": "Employee Excuse Analytics (Evening)",
    "width": "Half"
   },
   {
-   "chart": "Employee Excuse Analytics (Evening)",
+   "chart": "Employee Excuse Analytics (Morning)",
    "width": "Half"
   },
   {
@@ -44,7 +44,7 @@
  "idx": 0,
  "is_default": 0,
  "is_standard": 1,
- "modified": "2023-10-19 21:29:16.592099",
+ "modified": "2023-11-13 04:20:22.414284",
  "modified_by": "Administrator",
  "module": "Leave Management",
  "name": "Leave Management Dashboard",
