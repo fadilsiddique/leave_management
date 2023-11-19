@@ -31,9 +31,18 @@ def get_next_month_sunday_count():
     next_month = now.month + 1 if now.month < 12 else 1
     next_year = now.year if now.month < 12 else now.year + 1
 
+    print(next_month,next_year)
+
     next_month_calendar = calendar.monthcalendar(next_year, next_month)
     next_month_sunday_count = len([1 for week in next_month_calendar if week[-1] != 0])
 
     total_leave = (next_month_sunday_count + 1)
 
     return total_leave
+
+def rest_queue():
+
+    frappe.enqueue(
+        reset_days,
+        queue="default",
+    )
