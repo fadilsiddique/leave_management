@@ -20,11 +20,11 @@ class LeaveRequest(Document):
 			for dates in leave_settings.restrict_leave:
 				restricted_dates.append(dates.date2.strftime('%Y-%m-%d'))
 
-			current_month_leave_balance, current_month_excuse_balance, department, floor= frappe.db.get_value('Employee',self.employee,['current_month_leave_balance','current_month_excuse_balance','department','floor'])
+			current_month_leave_balance, current_month_excuse_balance, designation, floor= frappe.db.get_value('Employee',self.employee,['current_month_leave_balance','current_month_excuse_balance','designation','floor'])
 			if floor:
 				floor_wise_leave(self,leave_settings)
-			if department:
-				department_wise_leave(self,leave_settings)
+			if designation:
+				designation_wise_leave(self,leave_settings)
 
 			if self.request_type == 'Leave':
 
@@ -102,19 +102,19 @@ def floor_wise_leave(self,leave_settings):
 						if requests >= i.maximum_leaves :
 							frappe.throw(f"Maximum Leaves For {floor} Floor Has Been Taken")
 	
-def department_wise_leave(self,leave_settings):
+def designation_wise_leave(self,leave_settings):
 
 		roles = frappe.get_roles(frappe.session.user)
 		
 		if not 'HR Manager' in roles or 'Asst. HR' in roles or 'System Manager' in roles:
-			department= frappe.db.get_value('Employee',self.employee,['department'])
-			requests = frappe.db.count(self.doctype,{'from_date':self.from_date,'leave_status':['in',['Approved','Pending']],'department':department})
+			designation= frappe.db.get_value('Employee',self.employee,['designation'])
+			requests = frappe.db.count(self.doctype,{'from_date':self.from_date,'leave_status':['in',['Approved','Pending']],'designation':designation})
 
-			if department:
-				for i in leave_settings.department_leave_allocation_table:
-					if i.department == department:
+			if designation:
+				for i in leave_settings.designation_leave_allocation_table:
+					if i.designation == designation:
 						if requests >= i.maximum_leaves:
-							frappe.throw(f"Maximum Leaves For {department} Department Has Been Taken")
+							frappe.throw(f"Maximum Leaves For {designation} Role Has Been Taken")
 
 def send_email_notification(docname):
 

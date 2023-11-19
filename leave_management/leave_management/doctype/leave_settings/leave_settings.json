@@ -17,8 +17,8 @@
   "restrict_leave",
   "floor_leave_allocation_section",
   "floor_leave_allocation_table",
-  "department__leave_allocation_section",
-  "department_leave_allocation_table"
+  "designation__leave_allocation_section",
+  "designation_leave_allocation_table"
  ],
  "fields": [
   {
@@ -67,26 +67,26 @@
    "options": "Floor Leave Count"
   },
   {
-   "fieldname": "department__leave_allocation_section",
-   "fieldtype": "Section Break",
-   "label": "Department  Leave Allocation"
-  },
-  {
-   "fieldname": "department_leave_allocation_table",
-   "fieldtype": "Table",
-   "label": "Department Leave Allocation Table",
-   "options": "Department Leave Count"
-  },
-  {
    "fieldname": "general_settings_section",
    "fieldtype": "Section Break",
    "label": "General Settings"
+  },
+  {
+   "fieldname": "designation__leave_allocation_section",
+   "fieldtype": "Section Break",
+   "label": "Designation  Leave Allocation"
+  },
+  {
+   "fieldname": "designation_leave_allocation_table",
+   "fieldtype": "Table",
+   "label": "Designation Leave Allocation Table",
+   "options": "Designation Leave Count"
   }
  ],
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2023-11-11 17:22:31.028718",
+ "modified": "2023-11-19 13:40:22.498979",
  "modified_by": "Administrator",
  "module": "Leave Management",
  "name": "Leave Settings",
