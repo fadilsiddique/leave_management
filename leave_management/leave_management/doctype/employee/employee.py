@@ -39,6 +39,16 @@ class Employee(Document):
 
 		self.save()
 
+	def on_update(self):
+
+		if self.status == 'Inactive':
+
+			user = frappe.get_doc('User',self.user_details)
+
+			user.enabled = 0
+
+			user.db_set('enabled',0)
+
 
 
 
