@@ -213,8 +213,13 @@
   }
  ],
  "index_web_pages_for_search": 1,
- "links": [],
- "modified": "2023-11-05 13:46:06.070493",
+ "links": [
+  {
+   "link_doctype": "Leave Request",
+   "link_fieldname": "employee"
+  }
+ ],
+ "modified": "2023-11-19 15:17:50.666764",
  "modified_by": "Administrator",
  "module": "Leave Management",
  "name": "Employee",
