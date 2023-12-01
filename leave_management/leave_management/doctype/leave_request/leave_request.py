@@ -27,8 +27,6 @@ class LeaveRequest(Document):
 				designation_wise_leave(self,leave_settings)
 
 			if self.request_type == 'Leave':
-
-		
 				requests = frappe.db.count(self.doctype,{'from_date':self.from_date,'leave_status':['in',['Approved','Pending']]})
 
 				if self.from_date in restricted_dates:
@@ -92,29 +90,45 @@ def floor_wise_leave(self,leave_settings):
 		
 		if not 'HR Manager' in roles or 'Asst. HR' in roles or 'System Manager' in roles:
 		
-			floor= frappe.db.get_value('Employee',self.employee,['floor'])
-			requests = frappe.db.count(self.doctype,{'from_date':self.from_date,'leave_status':['in',['Approved','Pending']],'floor':floor})
+			floor,request_type= self.floor,self.request_type
+			leave_requests = frappe.db.count(self.doctype,{'from_date':self.from_date,'request_type':'Leave','leave_status':['in',['Approved','Pending']],'floor':floor})
+			excuse_requests = frappe.db.count(self.doctype,{'time':self.time,'request_type':'Excuse','leave_status':['in',['Approved','Pending']],'floor':floor})
 
 			if floor:
 				for i in leave_settings.floor_leave_allocation_table:
 					if i.floor == floor:
+						if request_type == 'Leave':
+							if leave_requests >= i.maximum_leaves:
+								frappe.throw(f"Maximum Leaves For {floor} Floor Has Been Taken")
+						if request_type == 'Excuse':
+							if excuse_requests >= i.maximum_leaves:
+								frappe.throw(f"Maximum Excuses For {floor} Floor Has Been Taken")
 
-						if requests >= i.maximum_leaves :
-							frappe.throw(f"Maximum Leaves For {floor} Floor Has Been Taken")
+
+
 	
 def designation_wise_leave(self,leave_settings):
 
 		roles = frappe.get_roles(frappe.session.user)
 		
 		if not 'HR Manager' in roles or 'Asst. HR' in roles or 'System Manager' in roles:
-			designation= frappe.db.get_value('Employee',self.employee,['designation'])
-			requests = frappe.db.count(self.doctype,{'from_date':self.from_date,'leave_status':['in',['Approved','Pending']],'designation':designation})
+			designation, request_type= self.designation, self.request_type
+			leave_requests = frappe.db.count(self.doctype,{'from_date':self.from_date,'request_type':'Leave','leave_status':['in',['Approved','Pending']],'designation':designation})
+			excuse_requests = frappe.db.count(self.doctype,{'time':self.time,'request_type':'Excuse','leave_status':['in',['Approved','Pending']],'designation':designation})
+
 
 			if designation:
 				for i in leave_settings.designation_leave_allocation_table:
 					if i.designation == designation:
-						if requests >= i.maximum_leaves:
-							frappe.throw(f"Maximum Leaves For {designation} Role Has Been Taken")
+						if request_type == 'Leave':
+							if leave_requests >= i.maximum_leaves:
+								frappe.throw(f"Maximum Leaves For {designation} Role Has Been Taken")
+
+						if request_type == 'Excuse':
+							if excuse_requests>= i.maximum_leaves:
+								frappe.throw(f"Maximum Excuses For {designation} Role Has Been Taken")
+
+
 
 def send_email_notification(docname):
 
