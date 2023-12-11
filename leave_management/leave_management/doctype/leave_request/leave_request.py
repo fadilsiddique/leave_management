@@ -27,7 +27,7 @@ class LeaveRequest(Document):
 				designation_wise_leave(self,leave_settings)
 
 			if self.request_type == 'Leave':
-				requests = frappe.db.count(self.doctype,{'from_date':self.from_date,'leave_status':['in',['Approved','Pending']]})
+				requests = frappe.db.count(self.doctype,{'from_date':self.from_date,'leave_status':['in',['Approved']]})
 
 				if self.from_date in restricted_dates:
 					frappe.throw(title="Request Denied", msg="Taking Leave On Selected Date Is Restricted By Management. Please Contact HR")
@@ -41,7 +41,7 @@ class LeaveRequest(Document):
 
 			elif self.request_type == 'Excuse':
 
-				requests = frappe.db.count(self.doctype,{'time':self.time,'leave_status':['in',['Approved','Pending']]})
+				requests = frappe.db.count(self.doctype,{'time':self.time,'leave_status':['in',['Approved']]})
 
 				if self.time in restricted_dates:
 					frappe.throw(title="Request Denied", msg="Taking Excuse On Selected Date Is Restricted By Management. Please Contact HR")
@@ -91,8 +91,8 @@ def floor_wise_leave(self,leave_settings):
 		if not 'HR Manager' in roles or 'Asst. HR' in roles or 'System Manager' in roles:
 		
 			floor,request_type= self.floor,self.request_type
-			leave_requests = frappe.db.count(self.doctype,{'from_date':self.from_date,'request_type':'Leave','leave_status':['in',['Approved','Pending']],'floor':floor})
-			excuse_requests = frappe.db.count(self.doctype,{'time':self.time,'request_type':'Excuse','leave_status':['in',['Approved','Pending']],'floor':floor})
+			leave_requests = frappe.db.count(self.doctype,{'from_date':self.from_date,'request_type':'Leave','leave_status':['in',['Approved']],'floor':floor})
+			excuse_requests = frappe.db.count(self.doctype,{'time':self.time,'request_type':'Excuse','leave_status':['in',['Approved']],'floor':floor})
 
 			if floor:
 				for i in leave_settings.floor_leave_allocation_table:
@@ -104,17 +104,14 @@ def floor_wise_leave(self,leave_settings):
 							if excuse_requests >= i.maximum_leaves:
 								frappe.throw(f"Maximum Excuses For {floor} Floor Has Been Taken")
 
-
-
-	
 def designation_wise_leave(self,leave_settings):
 
 		roles = frappe.get_roles(frappe.session.user)
 		
 		if not 'HR Manager' in roles or 'Asst. HR' in roles or 'System Manager' in roles:
 			designation, request_type= self.designation, self.request_type
-			leave_requests = frappe.db.count(self.doctype,{'from_date':self.from_date,'request_type':'Leave','leave_status':['in',['Approved','Pending']],'designation':designation})
-			excuse_requests = frappe.db.count(self.doctype,{'time':self.time,'request_type':'Excuse','leave_status':['in',['Approved','Pending']],'designation':designation})
+			leave_requests = frappe.db.count(self.doctype,{'from_date':self.from_date,'request_type':'Leave','leave_status':['in',['Approved']],'designation':designation})
+			excuse_requests = frappe.db.count(self.doctype,{'time':self.time,'request_type':'Excuse','leave_status':['in',['Approved']],'designation':designation})
 
 
 			if designation:
