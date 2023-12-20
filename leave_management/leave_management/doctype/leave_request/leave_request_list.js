@@ -3,7 +3,10 @@ frappe.listview_settings['Leave Request'] = {
     onload(listView){
         var userRoles = frappe.user_roles
 
-        if (userRoles.includes('Floor Manager')){
+        console.log(userRoles)
+
+        if (userRoles.includes('Floor Manager') && !userRoles.includes('Administrator')){
+            
             listView.$page.find(`div[class='filter-selector']`).addClass('hide')
         }
     }
