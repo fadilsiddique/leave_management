@@ -1,6 +1,6 @@
 {
  "charts": [],
- "content": "[{\"id\":\"r_ObaeOuH6\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Admin Portal</span>\",\"col\":12}},{\"id\":\"H9xMG1SMet\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Employees On Leave\",\"col\":3}},{\"id\":\"_1PRofgz6I\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Pending Leave Approval\",\"col\":3}},{\"id\":\"FChB-tpa4b\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Active Employees\",\"col\":3}},{\"id\":\"zvDCJkisZ4\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Employees On Leave (Tomorrow)\",\"col\":3}},{\"id\":\"xPFlpxogmo\",\"type\":\"quick_list\",\"data\":{\"quick_list_name\":\"Leave Request\",\"col\":4}},{\"id\":\"c_D8m6wgO-\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Modules</b></span>\",\"col\":12}},{\"id\":\"-6Dbi5b-mO\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Leave Management Dashboard\",\"col\":5}},{\"id\":\"2QmjVTQzUb\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Leave Requests\",\"col\":4}},{\"id\":\"MiwnqL1Ruz\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Employee\",\"col\":3}},{\"id\":\"6o1qZJl3Il\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Leave Settings\",\"col\":5}},{\"id\":\"5d7BB_QPWf\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"User\",\"col\":4}},{\"id\":\"FzYd8ODPZk\",\"type\":\"card\",\"data\":{\"card_name\":\"Portal\",\"col\":4}},{\"id\":\"XyVTXA2koh\",\"type\":\"card\",\"data\":{\"card_name\":\"Reports\",\"col\":4}}]",
+ "content": "[{\"id\":\"r_ObaeOuH6\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Admin Portal</span>\",\"col\":12}},{\"id\":\"H9xMG1SMet\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Employees On Leave\",\"col\":3}},{\"id\":\"_1PRofgz6I\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Pending Leave Approval\",\"col\":3}},{\"id\":\"FChB-tpa4b\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Active Employees\",\"col\":3}},{\"id\":\"zvDCJkisZ4\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Employees On Leave (Tomorrow)\",\"col\":3}},{\"id\":\"shLmiPk989\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Current Month Leave\",\"col\":3}},{\"id\":\"xPFlpxogmo\",\"type\":\"quick_list\",\"data\":{\"quick_list_name\":\"Leave Request\",\"col\":10}},{\"id\":\"c_D8m6wgO-\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Modules</b></span>\",\"col\":12}},{\"id\":\"-6Dbi5b-mO\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Leave Management Dashboard\",\"col\":5}},{\"id\":\"2QmjVTQzUb\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Leave Requests\",\"col\":4}},{\"id\":\"MiwnqL1Ruz\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Employee\",\"col\":3}},{\"id\":\"6o1qZJl3Il\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Leave Settings\",\"col\":5}},{\"id\":\"5d7BB_QPWf\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"User\",\"col\":4}},{\"id\":\"FzYd8ODPZk\",\"type\":\"card\",\"data\":{\"card_name\":\"Portal\",\"col\":4}},{\"id\":\"XyVTXA2koh\",\"type\":\"card\",\"data\":{\"card_name\":\"Reports\",\"col\":4}}]",
  "creation": "2023-10-22 17:12:45.987940",
  "custom_blocks": [],
  "docstatus": 0,
@@ -95,7 +95,7 @@
    "type": "Link"
   }
  ],
- "modified": "2023-10-26 10:26:10.952641",
+ "modified": "2023-10-31 10:10:04.770740",
  "modified_by": "Administrator",
  "module": "Leave Management",
  "name": "Admin Portal",
@@ -107,6 +107,10 @@
   {
    "label": "Employees On Leave (Tomorrow)",
    "number_card_name": "Employees On Leave (Tomorrow)"
+  },
+  {
+   "label": "Current Month Leave",
+   "number_card_name": "Upcoming Leaves"
   },
   {
    "label": "Active Employees",

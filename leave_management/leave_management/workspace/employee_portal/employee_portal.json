@@ -1,6 +1,6 @@
 {
  "charts": [],
- "content": "[{\"id\":\"-Sg3EC6OqQ\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Employee Portal</span>\",\"col\":12}},{\"id\":\"vEM4u8FFme\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Leave Request\",\"col\":3}},{\"id\":\"BNMqnIkPFt\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Employee\",\"col\":3}}]",
+ "content": "[{\"id\":\"-Sg3EC6OqQ\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Employee Portal</span>\",\"col\":12}},{\"id\":\"vEM4u8FFme\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Leave Request\",\"col\":3}}]",
  "creation": "2023-10-22 17:15:33.308101",
  "custom_blocks": [],
  "docstatus": 0,
@@ -12,7 +12,7 @@
  "is_hidden": 0,
  "label": "Employee Portal",
  "links": [],
- "modified": "2023-10-22 17:15:33.308101",
+ "modified": "2023-10-31 10:19:00.756876",
  "modified_by": "Administrator",
  "module": "Leave Management",
  "name": "Employee Portal",
@@ -33,13 +33,6 @@
    "doc_view": "List",
    "label": "Leave Request",
    "link_to": "Leave Request",
-   "type": "DocType"
-  },
-  {
-   "color": "Grey",
-   "doc_view": "List",
-   "label": "Employee",
-   "link_to": "Employee",
    "type": "DocType"
   }
  ],
