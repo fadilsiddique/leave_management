@@ -50,6 +50,29 @@ class LeaveRequest(Document):
 
 				if current_month_excuse_balance == 0.0:
 					frappe.throw('Maximum excuse for this month is taken. Please contact HR for new request')
+	def on_cancel(self):
+		employee = frappe.get_doc('Employee',self.employee)
+
+		if self.leave_status == 'Approved':
+			if self.request_type == 'Leave':
+				leave_balance=employee.current_month_leave_balance
+				frappe.db.set_value('Employee',self.employee,'current_month_leave_balance',leave_balance + 1)
+			if self.request_type == 'Excuse':
+				excuse_balance = employee.current_month_excuse_balance
+				frappe.db.set_value('Employee',self.employee,'current_month_excuse_balance',excuse_balance +1)
+			
+			frappe.db.set_value('Leave Request',self.name,'leave_status','Rejected')
+
+	def on_update_after_submit(self):
+		employee = frappe.get_doc('Employee',self.employee)
+
+		if self.leave_status == 'Rejected':
+			if self.request_type == 'Leave':
+				leave_balance=employee.current_month_leave_balance
+				frappe.db.set_value('Employee',self.employee,'current_month_leave_balance',leave_balance + 1)
+			if self.request_type == 'Excuse':
+				excuse_balance = employee.current_month_excuse_balance
+				frappe.db.set_value('Employee',self.employee,'current_month_excuse_balance',excuse_balance +1)
 	
 	def on_submit(self):
 
