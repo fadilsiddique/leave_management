@@ -100,10 +100,12 @@
    "label": "Reason"
   },
   {
+   "allow_on_submit": 1,
    "fieldname": "leave_status",
    "fieldtype": "Select",
    "label": "Leave Status",
    "options": "Pending\nApproved\nRejected",
+   "permlevel": 1,
    "read_only": 1
   },
   {
@@ -167,7 +169,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2023-11-19 13:50:31.933194",
+ "modified": "2023-12-18 16:51:14.821035",
  "modified_by": "Administrator",
  "module": "Leave Management",
  "name": "Leave Request",
