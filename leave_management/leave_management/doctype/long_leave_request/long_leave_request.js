@@ -6,11 +6,11 @@ frappe.ui.form.on('Long Leave Request', {
 
 	// }
 
-	to_date: function(frm){
+	// to_date: function(frm){
 
-		console.log(typeof(frm.doc.from_date))
+	// 	console.log(typeof(frm.doc.from_date))
 		
-	}
+	// }
 
 	
 });
