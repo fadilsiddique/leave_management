@@ -7,8 +7,6 @@ frappe.ui.form.on('Leave Request', {
 	// }
 
 	validate: function(frm){
-		
-
 		if ( frappe.user.has_role("Employee")){
 		console.log(frm.doc.request_type, frm.doc.excuse_type)
 
@@ -19,7 +17,6 @@ frappe.ui.form.on('Leave Request', {
 					frappe.throw('You Cannot Apply For Leave On Friday And Staurday. Please Contact HR.');
 				}
 		}
-
 		if (frm.doc.request_type =='Excuse' && frm.doc.excuse_type == 'Evening'){
 			let excuse_date = new Date(frm.doc.time);
 			let excuse_day = excuse_date.getDay();

@@ -7,7 +7,8 @@ from datetime import datetime
 
 class LeaveRequest(Document):
 	def validate(self):
-		
+		current_month = datetime.now().month
+		next_month = (current_month % 12) + 1
 		roles = frappe.get_roles(frappe.session.user)
 
 		if 'Employee' in roles:
@@ -20,7 +21,16 @@ class LeaveRequest(Document):
 			for dates in leave_settings.restrict_leave:
 				restricted_dates.append(dates.date2.strftime('%Y-%m-%d'))
 
-			current_month_leave_balance, current_month_excuse_balance, designation, floor= frappe.db.get_value('Employee',self.employee,['current_month_leave_balance','current_month_excuse_balance','designation','floor'])
+			current_month_leave_balance, current_month_excuse_balance, designation, floor,next_month_leave_balance,next_month_excuse_balance = frappe.db.get_value(
+				'Employee',
+				self.employee,
+				['current_month_leave_balance',
+				'current_month_excuse_balance',
+				'designation',
+				'floor',
+				'next_month_leave_balance',
+				'next_month_excuse_balance'
+				])
 			if floor:
 				floor_wise_leave(self,leave_settings)
 			if designation:
@@ -35,8 +45,11 @@ class LeaveRequest(Document):
 
 				if requests == leave_settings.maximum_leaves_per_day:
 					frappe.throw("Maximum Leaves For Selected Date Is Taken, Please Contact HR")
-
-				if current_month_leave_balance == 0.0:
+				
+				if self.from_date.month == current_month and current_month_leave_balance == 0.0:
+					frappe.throw('Maximum leave for this month is taken. Please contact HR for new request')
+				
+				if self.self.from_date.month == next_month and next_month_leave_balance == 0.0:
 					frappe.throw('Maximum leave for this month is taken. Please contact HR for new request')
 
 			elif self.request_type == 'Excuse':
@@ -48,8 +61,12 @@ class LeaveRequest(Document):
 				if requests == leave_settings.maximum_excuses_per_day:
 					frappe.throw ("Maximum Excuse For The Selected Date Is Taken, Please Contact HR")
 
-				if current_month_excuse_balance == 0.0:
+				if self.time.month == current_month and current_month_excuse_balance == 0.0:
 					frappe.throw('Maximum excuse for this month is taken. Please contact HR for new request')
+				if self.time.month == next_month and next_month_excuse_balance == 0.0:
+					frappe.throw('Maximum excuse for this month is taken. Please contact HR for new request')
+
+				
 	def on_cancel(self):
 		employee = frappe.get_doc('Employee',self.employee)
 
