@@ -16,8 +16,6 @@ class LeaveRequest(Document):
 			leave_settings = frappe.get_doc('Leave Settings')
 			restricted_dates = []
 
-			
-
 			for dates in leave_settings.restrict_leave:
 				restricted_dates.append(dates.date2.strftime('%Y-%m-%d'))
 
@@ -46,10 +44,14 @@ class LeaveRequest(Document):
 				if requests == leave_settings.maximum_leaves_per_day:
 					frappe.throw("Maximum Leaves For Selected Date Is Taken, Please Contact HR")
 				
-				if self.from_date.month == current_month and current_month_leave_balance == 0.0:
+				leave_date_str = self.from_date
+				leave_date_object = datetime.strptime(leave_date_str, '%Y-%m-%d')
+				leave_month_value = leave_date_object.month
+				
+				if leave_month_value == current_month and current_month_leave_balance == 0.0:
 					frappe.throw('Maximum leave for this month is taken. Please contact HR for new request')
 				
-				if self.self.from_date.month == next_month and next_month_leave_balance == 0.0:
+				if leave_month_value == next_month and next_month_leave_balance == 0.0:
 					frappe.throw('Maximum leave for this month is taken. Please contact HR for new request')
 
 			elif self.request_type == 'Excuse':
@@ -61,9 +63,13 @@ class LeaveRequest(Document):
 				if requests == leave_settings.maximum_excuses_per_day:
 					frappe.throw ("Maximum Excuse For The Selected Date Is Taken, Please Contact HR")
 
-				if self.time.month == current_month and current_month_excuse_balance == 0.0:
+				excuse_date_str = self.time
+				excuse_date_object = datetime.strptime(excuse_date_str, '%Y-%m-%d')
+				excuse_month_value = excuse_date_object.month
+
+				if excuse_month_value == current_month and current_month_excuse_balance == 0.0:
 					frappe.throw('Maximum excuse for this month is taken. Please contact HR for new request')
-				if self.time.month == next_month and next_month_excuse_balance == 0.0:
+				if excuse_month_value == next_month and next_month_excuse_balance == 0.0:
 					frappe.throw('Maximum excuse for this month is taken. Please contact HR for new request')
 
 				
