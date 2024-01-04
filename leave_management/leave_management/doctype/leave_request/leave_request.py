@@ -49,8 +49,8 @@ class LeaveRequest(Document):
 					frappe.throw("Please reload the page, you cannot apply for leave and excuse in a single request :(")
 
 				leave_date_str = self.from_date
-				# leave_date_object = datetime.strptime(leave_date_str, '%Y-%m-%d')
-				leave_month_value = leave_date_str.month
+				leave_date_object = datetime.strptime(leave_date_str, '%Y-%m-%d')
+				leave_month_value = leave_date_object.month
 				
 				if leave_month_value == current_month and current_month_leave_balance == 0.0:
 					frappe.throw('Maximum leave for this month is taken. Please contact HR for new request')
@@ -71,8 +71,8 @@ class LeaveRequest(Document):
 					frappe.throw("Please reload the page, you cannot apply for leave and excuse in a single request :(")
 
 				excuse_date_str = self.time
-				# excuse_date_object = datetime.strptime(excuse_date_str, '%Y-%m-%d')
-				excuse_month_value = excuse_date_str.month
+				excuse_date_object = datetime.strptime(excuse_date_str, '%Y-%m-%d')
+				excuse_month_value = excuse_date_object.month
 
 				if excuse_month_value == current_month and current_month_excuse_balance == 0.0:
 					frappe.throw('Maximum excuse for this month is taken. Please contact HR for new request')
