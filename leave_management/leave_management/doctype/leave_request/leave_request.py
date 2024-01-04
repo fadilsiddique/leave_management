@@ -45,8 +45,8 @@ class LeaveRequest(Document):
 					frappe.throw("Maximum Leaves For Selected Date Is Taken, Please Contact HR")
 				
 				leave_date_str = self.from_date
-				leave_date_object = datetime.strptime(leave_date_str, '%Y-%m-%d')
-				leave_month_value = leave_date_object.month
+				# leave_date_object = datetime.strptime(leave_date_str, '%Y-%m-%d')
+				leave_month_value = leave_date_str.month
 				
 				if leave_month_value == current_month and current_month_leave_balance == 0.0:
 					frappe.throw('Maximum leave for this month is taken. Please contact HR for new request')
@@ -64,8 +64,8 @@ class LeaveRequest(Document):
 					frappe.throw ("Maximum Excuse For The Selected Date Is Taken, Please Contact HR")
 
 				excuse_date_str = self.time
-				excuse_date_object = datetime.strptime(excuse_date_str, '%Y-%m-%d')
-				excuse_month_value = excuse_date_object.month
+				# excuse_date_object = datetime.strptime(excuse_date_str, '%Y-%m-%d')
+				excuse_month_value = excuse_date_str.month
 
 				if excuse_month_value == current_month and current_month_excuse_balance == 0.0:
 					frappe.throw('Maximum excuse for this month is taken. Please contact HR for new request')
@@ -78,8 +78,13 @@ class LeaveRequest(Document):
 
 		if self.leave_status == 'Approved':
 			if self.request_type == 'Leave':
-				leave_balance=employee.current_month_leave_balance
-				frappe.db.set_value('Employee',self.employee,'current_month_leave_balance',leave_balance + 1)
+				if self.leave_type=='Full Day':
+					leave_balance=employee.current_month_leave_balance
+					frappe.db.set_value('Employee',self.employee,'current_month_leave_balance',leave_balance + 1)
+				if self.leave_type == 'Half Day':
+					leave_balance=employee.current_month_leave_balance
+					frappe.db.set_value('Employee',self.employee,'current_month_leave_balance',leave_balance + 0.5)
+					
 			if self.request_type == 'Excuse':
 				excuse_balance = employee.current_month_excuse_balance
 				frappe.db.set_value('Employee',self.employee,'current_month_excuse_balance',excuse_balance +1)
@@ -91,8 +96,12 @@ class LeaveRequest(Document):
 
 		if self.leave_status == 'Rejected':
 			if self.request_type == 'Leave':
-				leave_balance=employee.current_month_leave_balance
-				frappe.db.set_value('Employee',self.employee,'current_month_leave_balance',leave_balance + 1)
+				if self.leave_type == 'Full Day':
+					leave_balance=employee.current_month_leave_balance
+					frappe.db.set_value('Employee',self.employee,'current_month_leave_balance',leave_balance + 1)
+				if self.leave_type == 'Half Day':
+					leave_balance=employee.current_month_leave_balance
+					frappe.db.set_value('Employee',self.employee,'current_month_leave_balance',leave_balance + 0.5)
 			if self.request_type == 'Excuse':
 				excuse_balance = employee.current_month_excuse_balance
 				frappe.db.set_value('Employee',self.employee,'current_month_excuse_balance',excuse_balance +1)
@@ -107,14 +116,27 @@ class LeaveRequest(Document):
 
 			if self.request_type == 'Leave':
 
-				if employee_doc.current_month_leave_balance ==0.0:
-					employee_doc.db_set('current_month_excuse_balance',employee_doc.current_month_excuse_balance - 1)
+				if self.leave_type == 'Full Day':
 
-				if employee_doc.current_month_leave_balance >0.0 and self.from_date.month==now.month:
-					employee_doc.db_set('current_month_leave_balance',employee_doc.current_month_leave_balance - 1)
-				
-				elif employee_doc.next_month_leave_balance >0.0 and self.from_date.month!=now.month:
-					employee_doc.db_set('next_month_leave_balance',employee_doc.next_month_leave_balance - 1)
+					if employee_doc.current_month_leave_balance ==0.0:
+						employee_doc.db_set('current_month_excuse_balance',employee_doc.current_month_excuse_balance - 1)
+
+					if employee_doc.current_month_leave_balance >0.0 and self.from_date.month==now.month:
+						employee_doc.db_set('current_month_leave_balance',employee_doc.current_month_leave_balance - 1)
+					
+					elif employee_doc.next_month_leave_balance >0.0 and self.from_date.month!=now.month:
+						employee_doc.db_set('next_month_leave_balance',employee_doc.next_month_leave_balance - 1)
+
+				if self.leave_type == 'Half Day':
+					if employee_doc.current_month_leave_balance ==0.0:
+						employee_doc.db_set('current_month_excuse_balance',employee_doc.current_month_excuse_balance - 1)
+
+					if employee_doc.current_month_leave_balance >0.0 and self.from_date.month==now.month:
+						employee_doc.db_set('current_month_leave_balance',employee_doc.current_month_leave_balance - 0.5)
+					
+					elif employee_doc.next_month_leave_balance >0.0 and self.from_date.month!=now.month:
+						employee_doc.db_set('next_month_leave_balance',employee_doc.next_month_leave_balance - 0.5)
+
 
 
 			elif self.request_type == 'Excuse':
