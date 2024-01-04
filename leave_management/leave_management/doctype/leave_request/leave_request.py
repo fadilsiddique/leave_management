@@ -43,7 +43,11 @@ class LeaveRequest(Document):
 
 				if requests == leave_settings.maximum_leaves_per_day:
 					frappe.throw("Maximum Leaves For Selected Date Is Taken, Please Contact HR")
-				
+
+				if self.time != None:
+					
+					frappe.throw("Please reload the page, you cannot apply for leave and excuse in a single request :(")
+
 				leave_date_str = self.from_date
 				# leave_date_object = datetime.strptime(leave_date_str, '%Y-%m-%d')
 				leave_month_value = leave_date_str.month
@@ -62,6 +66,9 @@ class LeaveRequest(Document):
 					frappe.throw(title="Request Denied", msg="Taking Excuse On Selected Date Is Restricted By Management. Please Contact HR")
 				if requests == leave_settings.maximum_excuses_per_day:
 					frappe.throw ("Maximum Excuse For The Selected Date Is Taken, Please Contact HR")
+
+				if self.from_date != None:
+					frappe.throw("Please reload the page, you cannot apply for leave and excuse in a single request :(")
 
 				excuse_date_str = self.time
 				# excuse_date_object = datetime.strptime(excuse_date_str, '%Y-%m-%d')
