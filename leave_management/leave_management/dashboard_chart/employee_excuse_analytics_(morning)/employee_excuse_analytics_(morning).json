@@ -1,5 +1,5 @@
 {
- "based_on": "from_date",
+ "based_on": "time",
  "chart_name": "Employee Excuse Analytics (Morning)",
  "chart_type": "Count",
  "color": "#ECAD4B",
@@ -13,8 +13,8 @@
  "idx": 0,
  "is_public": 1,
  "is_standard": 1,
- "last_synced_on": "2023-10-16 10:24:57.602503",
- "modified": "2023-10-19 21:28:25.213170",
+ "last_synced_on": "2023-12-20 17:16:33.821995",
+ "modified": "2024-01-05 09:24:23.572000",
  "modified_by": "Administrator",
  "module": "Leave Management",
  "name": "Employee Excuse Analytics (Morning)",
