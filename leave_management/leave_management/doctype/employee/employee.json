@@ -205,7 +205,8 @@
    "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "Employee ID",
-   "read_only": 1
+   "permlevel": 1,
+   "reqd": 1
   },
   {
    "fieldname": "section_break_3ukp0",
@@ -219,7 +220,7 @@
    "link_fieldname": "employee"
   }
  ],
- "modified": "2023-11-19 15:17:50.666764",
+ "modified": "2024-11-29 17:47:11.223654",
  "modified_by": "Administrator",
  "module": "Leave Management",
  "name": "Employee",
