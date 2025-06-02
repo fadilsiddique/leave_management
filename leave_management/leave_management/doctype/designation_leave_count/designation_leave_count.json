@@ -17,7 +17,7 @@
    "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "Designation",
-   "options": "Designation"
+   "options": "MJ Designation"
   },
   {
    "fieldname": "maximum_leaves",
@@ -30,7 +30,7 @@
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2023-11-19 13:31:05.258540",
+ "modified": "2025-06-02 14:01:37.999349",
  "modified_by": "Administrator",
  "module": "Leave Management",
  "name": "Designation Leave Count",

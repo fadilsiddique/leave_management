@@ -1,36 +1,29 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "field:branch_name",
- "creation": "2023-09-15 20:53:51.675899",
+ "autoname": "field:level",
+ "creation": "2023-10-16 19:10:32.931874",
  "default_view": "List",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "branch_name",
-  "company"
+  "level"
  ],
  "fields": [
   {
-   "fieldname": "branch_name",
+   "fieldname": "level",
    "fieldtype": "Data",
-   "label": "Branch Name",
+   "label": "Level",
    "unique": 1
-  },
-  {
-   "fieldname": "company",
-   "fieldtype": "Link",
-   "label": "Company",
-   "options": "Company"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-09-21 16:15:42.123686",
+ "modified": "2023-10-16 19:11:01.706037",
  "modified_by": "Administrator",
  "module": "Leave Management",
- "name": "Branch",
+ "name": "MJ Floor",
  "naming_rule": "Expression (old style)",
  "owner": "Administrator",
  "permissions": [

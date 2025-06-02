@@ -5,5 +5,5 @@
 from frappe.tests.utils import FrappeTestCase
 
 
-class TestCompany(FrappeTestCase):
+class TestMJDesignation(FrappeTestCase):
 	pass

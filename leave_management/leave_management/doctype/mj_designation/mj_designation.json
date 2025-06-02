@@ -2,29 +2,36 @@
  "actions": [],
  "allow_import": 1,
  "allow_rename": 1,
- "autoname": "field:department_name",
- "creation": "2023-09-15 20:54:30.072503",
+ "autoname": "field:designation",
+ "creation": "2023-09-21 15:50:49.152348",
  "default_view": "List",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "department_name"
+  "designation",
+  "department"
  ],
  "fields": [
   {
-   "fieldname": "department_name",
+   "fieldname": "designation",
    "fieldtype": "Data",
-   "label": "Department Name",
+   "label": "Designation",
    "unique": 1
+  },
+  {
+   "fieldname": "department",
+   "fieldtype": "Link",
+   "label": "Department",
+   "options": "MJ Department"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-10-01 18:17:42.097349",
+ "modified": "2025-06-02 14:06:18.508240",
  "modified_by": "Administrator",
  "module": "Leave Management",
- "name": "Department",
+ "name": "MJ Designation",
  "naming_rule": "Expression (old style)",
  "owner": "Administrator",
  "permissions": [

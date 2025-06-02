@@ -57,7 +57,7 @@
    "fieldname": "department",
    "fieldtype": "Link",
    "label": "Department",
-   "options": "Department",
+   "options": "MJ Department",
    "read_only": 1
   },
   {
@@ -65,14 +65,14 @@
    "fieldname": "designation",
    "fieldtype": "Link",
    "label": "Designation",
-   "options": "Designation"
+   "options": "MJ Designation"
   },
   {
    "fetch_from": "employee.branch",
    "fieldname": "branch",
    "fieldtype": "Link",
    "label": "Branch",
-   "options": "Branch"
+   "options": "MJ Branch"
   },
   {
    "fetch_from": "employee.floor",
@@ -158,7 +158,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2023-12-29 16:41:57.243136",
+ "modified": "2025-06-02 14:12:34.184385",
  "modified_by": "Administrator",
  "module": "Leave Management",
  "name": "Long Leave Request",

@@ -5,5 +5,5 @@
 from frappe.tests.utils import FrappeTestCase
 
 
-class TestDepartment(FrappeTestCase):
+class TestMJDepartment(FrappeTestCase):
 	pass

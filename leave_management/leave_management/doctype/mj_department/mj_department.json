@@ -1,29 +1,30 @@
 {
  "actions": [],
+ "allow_import": 1,
  "allow_rename": 1,
- "autoname": "field:level",
- "creation": "2023-10-16 19:10:32.931874",
+ "autoname": "field:department_name",
+ "creation": "2023-09-15 20:54:30.072503",
  "default_view": "List",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "level"
+  "department_name"
  ],
  "fields": [
   {
-   "fieldname": "level",
+   "fieldname": "department_name",
    "fieldtype": "Data",
-   "label": "Level",
+   "label": "Department Name",
    "unique": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-10-16 19:11:01.706037",
+ "modified": "2023-10-01 18:17:42.097349",
  "modified_by": "Administrator",
  "module": "Leave Management",
- "name": "Floor",
+ "name": "MJ Department",
  "naming_rule": "Expression (old style)",
  "owner": "Administrator",
  "permissions": [

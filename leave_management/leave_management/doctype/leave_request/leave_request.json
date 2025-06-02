@@ -52,7 +52,7 @@
    "fieldname": "branch",
    "fieldtype": "Link",
    "label": "Branch",
-   "options": "Branch"
+   "options": "MJ Branch"
   },
   {
    "depends_on": "eval: doc.request_type=='Leave'",
@@ -120,7 +120,7 @@
    "fieldname": "department",
    "fieldtype": "Link",
    "label": "Department",
-   "options": "Department",
+   "options": "MJ Department",
    "read_only": 1
   },
   {
@@ -163,13 +163,13 @@
    "fieldname": "designation",
    "fieldtype": "Link",
    "label": "Designation",
-   "options": "Designation"
+   "options": "MJ Designation"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2023-12-18 16:51:14.821035",
+ "modified": "2025-06-02 14:12:34.667779",
  "modified_by": "Administrator",
  "module": "Leave Management",
  "name": "Leave Request",

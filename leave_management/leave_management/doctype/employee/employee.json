@@ -112,7 +112,7 @@
    "fieldname": "company",
    "fieldtype": "Link",
    "label": "Company",
-   "options": "Company"
+   "options": "MJ Company"
   },
   {
    "fieldname": "column_break_fhkeu",
@@ -122,7 +122,7 @@
    "fieldname": "branch",
    "fieldtype": "Link",
    "label": "Branch",
-   "options": "Branch"
+   "options": "MJ Branch"
   },
   {
    "fieldname": "column_break_bpf37",
@@ -132,13 +132,13 @@
    "fieldname": "department",
    "fieldtype": "Link",
    "label": "Department",
-   "options": "Department"
+   "options": "MJ Department"
   },
   {
    "fieldname": "designation",
    "fieldtype": "Link",
    "label": "Designation",
-   "options": "Designation"
+   "options": "MJ Designation"
   },
   {
    "fieldname": "first_name",
@@ -196,7 +196,7 @@
    "fieldtype": "Link",
    "in_list_view": 1,
    "label": "Floor",
-   "options": "Floor"
+   "options": "MJ Floor"
   },
   {
    "fieldname": "employee_id",
@@ -220,7 +220,7 @@
    "link_fieldname": "employee"
   }
  ],
- "modified": "2024-11-29 17:47:11.223654",
+ "modified": "2025-06-02 14:12:35.088154",
  "modified_by": "Administrator",
  "module": "Leave Management",
  "name": "Employee",
