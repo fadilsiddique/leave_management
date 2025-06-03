@@ -15,7 +15,7 @@
  "name": "Leave Balance",
  "owner": "Administrator",
  "prepared_report": 0,
- "ref_doctype": "Employee",
+ "ref_doctype": "MJ Employee",
  "report_name": "Leave Balance",
  "report_type": "Script Report",
  "roles": [

@@ -35,7 +35,7 @@
    "fieldtype": "Link",
    "in_list_view": 1,
    "label": "Employee",
-   "options": "Employee",
+   "options": "MJ Employee",
    "reqd": 1
   },
   {
@@ -43,7 +43,7 @@
    "fieldtype": "Link",
    "label": "Amended From",
    "no_copy": 1,
-   "options": "Leave Request",
+   "options": "MJ Leave Request",
    "print_hide": 1,
    "read_only": 1
   },
@@ -169,7 +169,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-06-02 14:12:34.667779",
+ "modified": "2025-06-03 15:20:48.410680",
  "modified_by": "Administrator",
  "module": "Leave Management",
  "name": "MJ Leave Request",

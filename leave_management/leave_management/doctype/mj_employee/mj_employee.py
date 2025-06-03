@@ -5,7 +5,7 @@ import frappe
 from frappe.model.document import Document
 from leave_management.reset import get_next_month_sunday_count
 
-class Employee(Document):
+class MJEmployee(Document):
 	
 	def after_insert(self):
 
@@ -22,20 +22,20 @@ class Employee(Document):
 			doc = frappe.get_doc({
 				'doctype': 'User Permission',
 				'user': self.user_details,
-				'allow':'Employee',
+				'allow':'MJ Employee',
 				'for_value': self.name
 				})
 
 			doc.insert()
 
 		else:
-			frappe.throw('Enter user linked to current employee in user details')
+			frappe.throw('Enter user linked to current mj_employee in user details')
 
-		# emp_list = frappe.get_list('Employee',fields=['employee_id'])
-		# employee_ids = [item["employee_id"] for item in emp_list]
-		# max_employee_id = max(employee_ids)
+		# emp_list = frappe.get_list('MJEmployee',fields=['mj_employee_id'])
+		# mj_employee_ids = [item["mj_employee_id"] for item in emp_list]
+		# max_mj_employee_id = max(mj_employee_ids)
 
-		# self.employee_id = max_employee_id + 1
+		# self.mj_employee_id = max_mj_employee_id + 1
 
 		# self.save()
 

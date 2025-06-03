@@ -12,11 +12,11 @@ def reset_days():
     leave_settings.db_set('maximum_leaves_per_month',total_leave)
     leave_settings.db_set('maximum_excuses_per_month',total_leave)
 
-    employee_list = frappe.db.get_list('Employee',fields='name')
+    employee_list = frappe.db.get_list('MJ Employee',fields='name')
 
     for employee in employee_list:
 
-        frappe.db.set_value('Employee',employee.name,{
+        frappe.db.set_value('MJ Employee',employee.name,{
             'current_month_leave_balance':employee.next_month_leave_balance if employee.next_month_leave_balance else total_leave ,
             'current_month_excuse_balance':employee.next_month_excuse_balance if employee.next_month_excuse_balance else total_leave ,
             'next_month_leave_balance':get_next_month_sunday_count(),

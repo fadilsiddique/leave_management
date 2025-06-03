@@ -20,7 +20,7 @@ class MJLeaveRequest(Document):
 				restricted_dates.append(dates.date2.strftime('%Y-%m-%d'))
 
 			current_month_leave_balance, current_month_excuse_balance, designation, floor,next_month_leave_balance,next_month_excuse_balance = frappe.db.get_value(
-				'Employee',
+				'MJ Employee',
 				self.employee,
 				['current_month_leave_balance',
 				'current_month_excuse_balance',
@@ -81,43 +81,43 @@ class MJLeaveRequest(Document):
 
 				
 	def on_cancel(self):
-		employee = frappe.get_doc('Employee',self.employee)
+		employee = frappe.get_doc('MJ Employee',self.employee)
 
 		if self.leave_status == 'Approved':
 			if self.request_type == 'Leave':
 				if self.leave_type=='Full Day':
 					leave_balance=employee.current_month_leave_balance
-					frappe.db.set_value('Employee',self.employee,'current_month_leave_balance',leave_balance + 1)
+					frappe.db.set_value('MJ Employee',self.employee,'current_month_leave_balance',leave_balance + 1)
 				if self.leave_type == 'Half Day':
 					leave_balance=employee.current_month_leave_balance
-					frappe.db.set_value('Employee',self.employee,'current_month_leave_balance',leave_balance + 0.5)
+					frappe.db.set_value('MJ Employee',self.employee,'current_month_leave_balance',leave_balance + 0.5)
 					
 			if self.request_type == 'Excuse':
 				excuse_balance = employee.current_month_excuse_balance
-				frappe.db.set_value('Employee',self.employee,'current_month_excuse_balance',excuse_balance +1)
+				frappe.db.set_value('MJ Employee',self.employee,'current_month_excuse_balance',excuse_balance +1)
 			
 			frappe.db.set_value('MJ Leave Request',self.name,'leave_status','Rejected')
 
 	def on_update_after_submit(self):
-		employee = frappe.get_doc('Employee',self.employee)
+		employee = frappe.get_doc('MJ Employee',self.employee)
 
 		if self.leave_status == 'Rejected':
 			if self.request_type == 'Leave':
 				if self.leave_type == 'Full Day':
 					leave_balance=employee.current_month_leave_balance
-					frappe.db.set_value('Employee',self.employee,'current_month_leave_balance',leave_balance + 1)
+					frappe.db.set_value('MJ Employee',self.employee,'current_month_leave_balance',leave_balance + 1)
 				if self.leave_type == 'Half Day':
 					leave_balance=employee.current_month_leave_balance
-					frappe.db.set_value('Employee',self.employee,'current_month_leave_balance',leave_balance + 0.5)
+					frappe.db.set_value('MJ Employee',self.employee,'current_month_leave_balance',leave_balance + 0.5)
 			if self.request_type == 'Excuse':
 				excuse_balance = employee.current_month_excuse_balance
-				frappe.db.set_value('Employee',self.employee,'current_month_excuse_balance',excuse_balance +1)
+				frappe.db.set_value('MJ Employee',self.employee,'current_month_excuse_balance',excuse_balance +1)
 	
 	def on_submit(self):
 
 		now = datetime.now()
 		leave_settings = frappe.get_doc('MJ Leave Settings')
-		employee_doc=frappe.get_doc('Employee',self.employee)
+		employee_doc=frappe.get_doc('MJ Employee',self.employee)
 
 		if self.leave_status=='Approved':
 

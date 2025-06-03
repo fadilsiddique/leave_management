@@ -175,7 +175,7 @@
    "color": "Grey",
    "doc_view": "List",
    "label": "Employee",
-   "link_to": "Employee",
+   "link_to": "MJ Employee",
    "type": "DocType"
   }
  ],
