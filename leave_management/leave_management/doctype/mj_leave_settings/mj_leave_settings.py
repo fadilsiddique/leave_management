@@ -4,7 +4,7 @@
 # import frappe
 from frappe.model.document import Document
 
-class LeaveSettings(Document):
+class MJLeaveSettings(Document):
 	pass
 
 

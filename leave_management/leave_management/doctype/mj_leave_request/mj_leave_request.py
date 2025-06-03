@@ -5,7 +5,7 @@ import frappe
 from frappe.model.document import Document
 from datetime import datetime
 
-class LeaveRequest(Document):
+class MJLeaveRequest(Document):
 	def validate(self):
 		current_month = datetime.now().month
 		next_month = (current_month % 12) + 1
@@ -13,7 +13,7 @@ class LeaveRequest(Document):
 
 		if 'Employee' in roles:
 
-			leave_settings = frappe.get_doc('Leave Settings')
+			leave_settings = frappe.get_doc('MJ Leave Settings')
 			restricted_dates = []
 
 			for dates in leave_settings.restrict_leave:
@@ -96,7 +96,7 @@ class LeaveRequest(Document):
 				excuse_balance = employee.current_month_excuse_balance
 				frappe.db.set_value('Employee',self.employee,'current_month_excuse_balance',excuse_balance +1)
 			
-			frappe.db.set_value('Leave Request',self.name,'leave_status','Rejected')
+			frappe.db.set_value('MJ Leave Request',self.name,'leave_status','Rejected')
 
 	def on_update_after_submit(self):
 		employee = frappe.get_doc('Employee',self.employee)
@@ -116,7 +116,7 @@ class LeaveRequest(Document):
 	def on_submit(self):
 
 		now = datetime.now()
-		leave_settings = frappe.get_doc('Leave Settings')
+		leave_settings = frappe.get_doc('MJ Leave Settings')
 		employee_doc=frappe.get_doc('Employee',self.employee)
 
 		if self.leave_status=='Approved':
@@ -166,14 +166,14 @@ def floor_wise_leave(self,leave_settings):
 		if not 'HR Manager' in roles or 'Asst. HR' in roles or 'System Manager' in roles:
 		
 			floor,request_type= self.floor,self.request_type
-			leave_requests = frappe.db.count(self.doctype,{'from_date':self.from_date,'request_type':'Leave','leave_status':['in',['Approved']],'floor':floor})
+			mj_leave_requests = frappe.db.count(self.doctype,{'from_date':self.from_date,'request_type':'Leave','leave_status':['in',['Approved']],'floor':floor})
 			excuse_requests = frappe.db.count(self.doctype,{'time':self.time,'request_type':'Excuse','leave_status':['in',['Approved']],'floor':floor})
 
 			if floor:
 				for i in leave_settings.floor_leave_allocation_table:
 					if i.floor == floor:
 						if request_type == 'Leave':
-							if leave_requests >= i.maximum_leaves:
+							if mj_leave_requests >= i.maximum_leaves:
 								frappe.throw(f"Maximum Leaves For {floor} Floor Has Been Taken")
 						if request_type == 'Excuse':
 							if excuse_requests >= i.maximum_leaves:
@@ -185,7 +185,7 @@ def designation_wise_leave(self,leave_settings):
 		
 		if not 'HR Manager' in roles or 'Asst. HR' in roles or 'System Manager' in roles:
 			designation, request_type= self.designation, self.request_type
-			leave_requests = frappe.db.count(self.doctype,{'from_date':self.from_date,'request_type':'Leave','leave_status':['in',['Approved']],'designation':designation})
+			mj_leave_requests = frappe.db.count(self.doctype,{'from_date':self.from_date,'request_type':'Leave','leave_status':['in',['Approved']],'designation':designation})
 			excuse_requests = frappe.db.count(self.doctype,{'time':self.time,'request_type':'Excuse','leave_status':['in',['Approved']],'designation':designation})
 
 
@@ -193,7 +193,7 @@ def designation_wise_leave(self,leave_settings):
 				for i in leave_settings.designation_leave_allocation_table:
 					if i.designation == designation:
 						if request_type == 'Leave':
-							if leave_requests >= i.maximum_leaves:
+							if mj_leave_requests >= i.maximum_leaves:
 								frappe.throw(f"Maximum Leaves For {designation} Role Has Been Taken")
 
 						if request_type == 'Excuse':
@@ -204,10 +204,10 @@ def designation_wise_leave(self,leave_settings):
 
 def send_email_notification(docname):
 
-	doc = frappe.get_doc('Leave Request', docname)
+	doc = frappe.get_doc('MJ Leave Request', docname)
 	subject = f"New {doc.request_type} Request From {doc.name1}"
 	message = f"A new leave request has been submitted by {doc.name1}.\n"
-	message += f"Link to Leave Request: {frappe.utils.get_url_to_form('Leave Request', docname)}"
+	message += f"Link to Leave Request: {frappe.utils.get_url_to_form('MJ Leave Request', docname)}"
 
 	frappe.sendmail(
 		recipients=['teamhr.mjr@gmail.com'],

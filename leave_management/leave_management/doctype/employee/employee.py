@@ -9,7 +9,7 @@ class Employee(Document):
 	
 	def after_insert(self):
 
-		leave_settings = frappe.get_doc('Leave Settings')
+		leave_settings = frappe.get_doc('MJ Leave Settings')
 		self.current_month_leave_balance = leave_settings.maximum_leaves_per_month
 		self.current_month_excuse_balance = leave_settings.maximum_excuses_per_month
 		self.next_month_leave_balance = get_next_month_sunday_count()

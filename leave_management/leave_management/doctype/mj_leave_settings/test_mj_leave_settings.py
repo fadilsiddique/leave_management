@@ -5,5 +5,5 @@
 from frappe.tests.utils import FrappeTestCase
 
 
-class TestLeaveRequest(FrappeTestCase):
+class TestMJLeaveSettings(FrappeTestCase):
 	pass

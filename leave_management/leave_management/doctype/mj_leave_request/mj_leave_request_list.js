@@ -1,4 +1,4 @@
-frappe.listview_settings['Leave Request'] = {
+frappe.listview_settings['MJ Leave Request'] = {
     
     onload(listView){
         var userRoles = frappe.user_roles

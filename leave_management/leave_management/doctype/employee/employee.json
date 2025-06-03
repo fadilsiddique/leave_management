@@ -216,7 +216,7 @@
  "index_web_pages_for_search": 1,
  "links": [
   {
-   "link_doctype": "Leave Request",
+   "link_doctype": "MJ Leave Request",
    "link_fieldname": "employee"
   }
  ],

@@ -7,7 +7,7 @@ def reset_days():
 
     total_leave = current_month_sunday_count + 1
 
-    leave_settings = frappe.get_doc('Leave Settings')
+    leave_settings = frappe.get_doc('MJ Leave Settings')
 
     leave_settings.db_set('maximum_leaves_per_month',total_leave)
     leave_settings.db_set('maximum_excuses_per_month',total_leave)
