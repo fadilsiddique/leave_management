@@ -1,0 +1,75 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-06-24 16:14:39.998600",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "employee",
+  "date",
+  "incentive_type",
+  "metric_basis",
+  "metric_value",
+  "remarks",
+  "scheme_amount"
+ ],
+ "fields": [
+  {
+   "fieldname": "employee",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Employee",
+   "options": "Employee"
+  },
+  {
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Date"
+  },
+  {
+   "fieldname": "incentive_type",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Incentive Type",
+   "options": "MJ Incentive Rule"
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Data",
+   "label": "Remarks"
+  },
+  {
+   "fieldname": "scheme_amount",
+   "fieldtype": "Float",
+   "label": "Scheme Amount"
+  },
+  {
+   "fieldname": "metric_basis",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Metric Basis",
+   "options": "\nSales Amount\nWeight Sold\nCustomer Count"
+  },
+  {
+   "fieldname": "metric_value",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": " Metric Value"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-07-08 08:21:29.141364",
+ "modified_by": "Administrator",
+ "module": "Leave Management",
+ "name": "MJ Incentive Upload Entry",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

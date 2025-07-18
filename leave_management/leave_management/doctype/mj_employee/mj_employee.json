@@ -205,8 +205,7 @@
    "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "Employee ID",
-   "permlevel": 1,
-   "reqd": 1
+   "permlevel": 1
   },
   {
    "fieldname": "section_break_3ukp0",
@@ -220,7 +219,7 @@
    "link_fieldname": "employee"
   }
  ],
- "modified": "2025-06-02 14:12:35.088154",
+ "modified": "2025-06-24 17:50:35.375779",
  "modified_by": "Administrator",
  "module": "Leave Management",
  "name": "MJ Employee",

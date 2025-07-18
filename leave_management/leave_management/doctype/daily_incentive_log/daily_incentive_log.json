@@ -1,0 +1,98 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-06-24 11:09:40.861396",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "employee",
+  "date",
+  "linked_document",
+  "incentive_type",
+  "is_common_incentive",
+  "is_individual_incentive",
+  "eligible_department_incentive",
+  "incentive_amount",
+  "product_category"
+ ],
+ "fields": [
+  {
+   "fieldname": "employee",
+   "fieldtype": "Link",
+   "label": "Employee",
+   "options": "Employee"
+  },
+  {
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "label": "Date"
+  },
+  {
+   "fieldname": "linked_document",
+   "fieldtype": "Link",
+   "label": "Linked Document",
+   "options": "MJ Incentive Processing"
+  },
+  {
+   "fieldname": "incentive_type",
+   "fieldtype": "Link",
+   "label": "Incentive Type",
+   "options": "MJ Incentive Rule"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_common_incentive",
+   "fieldtype": "Check",
+   "label": "Is Common Incentive"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_individual_incentive",
+   "fieldtype": "Check",
+   "label": "Is Individual Incentive"
+  },
+  {
+   "default": "0",
+   "fieldname": "eligible_department_incentive",
+   "fieldtype": "Check",
+   "label": "Eligible Department Incentive"
+  },
+  {
+   "fieldname": "incentive_amount",
+   "fieldtype": "Float",
+   "label": "Incentive Amount"
+  },
+  {
+   "fieldname": "product_category",
+   "fieldtype": "Link",
+   "label": "Product Category",
+   "options": "MJ Product Category"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-07-08 08:26:50.254695",
+ "modified_by": "Administrator",
+ "module": "Leave Management",
+ "name": "Daily Incentive Log",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

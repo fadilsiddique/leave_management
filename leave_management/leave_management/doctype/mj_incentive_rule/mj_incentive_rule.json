@@ -1,0 +1,189 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:rule_name",
+ "creation": "2025-06-23 04:17:36.955888",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "rule_name",
+  "product_category",
+  "has_individual_incentive",
+  "has_common_incentive",
+  "section_break_1nmsa",
+  "individual_calculation_method",
+  "individual_rate",
+  "individual_basis",
+  "section_break_vcqop",
+  "common_calculation_method",
+  "common_rate",
+  "common_basis",
+  "section_break_ssgvz",
+  "has_threshold",
+  "section_break_b1hde",
+  "threshold_type",
+  "weekday_threshold",
+  "weekend_threshold",
+  "threshold_basis",
+  "section_break_5v843",
+  "eligible_department",
+  "scheme"
+ ],
+ "fields": [
+  {
+   "fieldname": "rule_name",
+   "fieldtype": "Data",
+   "label": "Rule Name",
+   "unique": 1
+  },
+  {
+   "fieldname": "product_category",
+   "fieldtype": "Link",
+   "label": "Product Category",
+   "options": "MJ Product Category"
+  },
+  {
+   "default": "0",
+   "fieldname": "has_individual_incentive",
+   "fieldtype": "Check",
+   "label": "Has Individual Incentive"
+  },
+  {
+   "default": "0",
+   "fieldname": "has_common_incentive",
+   "fieldtype": "Check",
+   "label": "Has Common Incentive"
+  },
+  {
+   "depends_on": "eval:doc.has_individual_incentive==1",
+   "fieldname": "section_break_1nmsa",
+   "fieldtype": "Section Break",
+   "label": "Individual Settings"
+  },
+  {
+   "fieldname": "individual_calculation_method",
+   "fieldtype": "Select",
+   "label": "Individual Calculation Method",
+   "options": "\nPercentage\nFixed Rate\nWeight Based"
+  },
+  {
+   "fieldname": "individual_rate",
+   "fieldtype": "Float",
+   "label": "Individual Rate"
+  },
+  {
+   "fieldname": "individual_basis",
+   "fieldtype": "Select",
+   "label": "Individual Basis",
+   "options": "\nSales Amount\nWeight Sold\nCustomer Count"
+  },
+  {
+   "depends_on": "eval:doc.has_common_incentive==1",
+   "fieldname": "section_break_vcqop",
+   "fieldtype": "Section Break",
+   "label": "Common Settings"
+  },
+  {
+   "fieldname": "common_calculation_method",
+   "fieldtype": "Select",
+   "label": "Common Calculation Method",
+   "options": "\nPercentage\nFixed Rate\nWeight Based"
+  },
+  {
+   "fieldname": "common_rate",
+   "fieldtype": "Float",
+   "label": "Common Rate"
+  },
+  {
+   "fieldname": "common_basis",
+   "fieldtype": "Select",
+   "label": "Common Basis",
+   "options": "\nSales Amount\nWeight Sold\nCustomer Count"
+  },
+  {
+   "depends_on": "eval:doc.has_threshold==1",
+   "fieldname": "section_break_b1hde",
+   "fieldtype": "Section Break",
+   "label": "Threshold"
+  },
+  {
+   "default": "0",
+   "fieldname": "has_threshold",
+   "fieldtype": "Check",
+   "label": "Has Threshold"
+  },
+  {
+   "fieldname": "threshold_type",
+   "fieldtype": "Select",
+   "label": "Threshold Type",
+   "options": "\nDaily\nWeekly\nMonthly"
+  },
+  {
+   "description": "Monday-Saturday",
+   "fieldname": "weekday_threshold",
+   "fieldtype": "Float",
+   "label": "Weekday Threshold"
+  },
+  {
+   "description": "Sunday",
+   "fieldname": "weekend_threshold",
+   "fieldtype": "Float",
+   "label": "Weekend Threshold"
+  },
+  {
+   "fieldname": "section_break_5v843",
+   "fieldtype": "Section Break",
+   "label": "Department"
+  },
+  {
+   "fieldname": "eligible_department",
+   "fieldtype": "Table",
+   "label": "Eligible Department",
+   "options": "MJ Eligible Department"
+  },
+  {
+   "fieldname": "threshold_basis",
+   "fieldtype": "Select",
+   "label": "Threshold Basis",
+   "options": "\nWeight\nAmount\nCustomer Count"
+  },
+  {
+   "fieldname": "section_break_ssgvz",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "scheme",
+   "fieldtype": "Table",
+   "label": "Scheme",
+   "options": "MJ Scheme Rate"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-06-23 05:18:33.762757",
+ "modified_by": "Administrator",
+ "module": "Leave Management",
+ "name": "MJ Incentive Rule",
+ "naming_rule": "Expression (old style)",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}
