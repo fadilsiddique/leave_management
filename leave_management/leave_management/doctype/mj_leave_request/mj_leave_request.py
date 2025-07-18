@@ -10,6 +10,7 @@ class MJLeaveRequest(Document):
 		current_month = datetime.now().month
 		next_month = (current_month % 12) + 1
 		roles = frappe.get_roles(frappe.session.user)
+		
 
 		if 'Employee' in roles:
 
